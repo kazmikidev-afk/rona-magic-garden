@@ -17,3 +17,8 @@ Automated browser checks: every activity at 320/390/1024/1280, no horizontal ove
 Post-round-2 verification also completed both lotto boards, confirmed pen ownership rejects palm move/up without ending the pen stroke, confirmed finger use after pen, and reproduced deferred request A/B timing with the fixed pending flag. English revealed/matched audio cards replay via SVG speaker. Completed-lotto Repeat is safe.
 
 Lotto now has its own Hebrew spoken introduction and completion clip, bringing bundled speech to 94 clips in 13 voice chunks. Each game remains optional and no history is saved.
+
+## Final review cycle 3
+Preserved English writing bridge and puzzle letter replay after success, accurate lotto preview, math lotto title, wrong-lotto visual hint, quantity number previews no longer change task Repeat. Removed obsolete duplicate local packs; they never reached the remote repository.
+
+Before calling this device-ready: real Android tablet test (stylus/palm, microphone prompt, PWA install/offline and emoji), a native Hebrew listener through every clip (especially ה/ו letter names, English target prompts and spoken songs), and an early-years educator glance at all print-letter paths. These remain unverified and are not implied by browser tests.
