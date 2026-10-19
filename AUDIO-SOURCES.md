@@ -1,0 +1,80 @@
+# Audio
+
+Bundled synthetic speech generated at build time with the free Google Translate speech endpoint (gTTS). No runtime external TTS requests. No child recordings or private source material was sent for generation. Scripts are original app instructions. Speech quality requires a parent listening check. Songs are spoken rhythmic verses, not a recorded singer.
+
+- welcome: ברוכה הבאה לגן הקסום של רונה. בחרי חברה או חבר ונשחק יחד.
+- world_he: אני ניצי הסנאית. בואי נשחק באותיות. חיפוש אות, פאזל, כתיבה, זיכרון או שיר.
+- world_math: אני טופי הכלבלב. בואי נספור צעצועים ונשחק במסיבה.
+- world_en: אני לולי השועל. בואי נגלה מילים באנגלית.
+- world_studio: אני מיקה החתולה. אפשר לצייר, לקשט ולהלביש. אין תשובה נכונה.
+- find_letter: הקשיבי לשם האות, והקישי על האות המתאימה.
+- puzzle: בחרי חלק מהאות, ואז חלק אחר להחלפה. נחבר את האות השלמה.
+- write: הסתכלי על הדגם. אפשר לצייר באצבע או בעט. לא צריך לכתוב מושלם.
+- quantity: געי בכל צעצוע פעם אחת. אחר כך בחרי כמה צעצועים יש.
+- shop: החברים באים למסיבה. נסתכל, נוסיף ונראה כמה יש ביחד.
+- how_many: עכשיו ספרי את החברים. כמה יש?
+- english: הקשיבי למילה באנגלית ובחרי את התמונה.
+- alphabet: הקשיבי לשם האות באנגלית והקישי עליה.
+- memory: פתחי שני קלפים. מצאי זוג מתאים. אם לא מצאת, אפשר לנסות שוב.
+- draw: בחרי צבע. ציירי באצבע או בעט. אפשר להוסיף מדבקות.
+- dress: בחרי צבע וקישוט לחברה שלנו. אפשר להחליף כמה שרוצים.
+- good: יופי! גילית! אפשר לשחק עוד או לעבור לסטודיו.
+- try: בואי ננסה יחד. הקשיבי שוב. אין מה למהר.
+- song_he: רונה מציירת, קו ועוד סימן. אבא ואימא באים אל הגן. אות ועוד אות, בקצב קטן. מוחאים כפיים, מתחילים מכאן.
+- song_math: אחת ושתיים, נרים ידיים. שלוש וארבע, נמחא כפיים. חמש אצבעות, נפתח פרח קטן. נספור שוב יחד, כאן בתוך הגן.
+- song_en: Red, red, touch your head. Blue, blue, a wave from you. Yellow, yellow, stretch up tall. Green, green, hello to all.
+- letter_0: אלף
+- find_0: מצאי את האות אלף
+- letter_1: בית
+- find_1: מצאי את האות בית
+- letter_2: ריש
+- find_2: מצאי את האות ריש
+- letter_3: וו
+- find_3: מצאי את האות וו
+- letter_4: נון
+- find_4: מצאי את האות נון
+- letter_5: הא
+- find_5: מצאי את האות הא
+- letter_6: מם
+- find_6: מצאי את האות מם
+- letter_7: יוד
+- find_7: מצאי את האות יוד
+- number_0: אפס
+- number_1: אחד
+- number_2: שתיים
+- number_3: שלוש
+- number_4: ארבע
+- number_5: חמש
+- number_6: שש
+- number_7: שבע
+- number_8: שמונה
+- number_9: תשע
+- number_10: עשר
+- word_0: cat
+- findword_0: Find cat
+- word_1: dog
+- findword_1: Find dog
+- word_2: fox
+- findword_2: Find fox
+- word_3: bird
+- findword_3: Find bird
+- word_4: red
+- findword_4: Find red
+- word_5: blue
+- findword_5: Find blue
+- word_6: yellow
+- findword_6: Find yellow
+- word_7: green
+- findword_7: Find green
+- word_8: ball
+- findword_8: Find ball
+- word_9: car
+- findword_9: Find car
+- word_10: doll
+- findword_10: Find doll
+- word_11: book
+- findword_11: Find book
+- englishletter_0: Find the letter A
+- englishletter_1: Find the letter B
+- englishletter_2: Find the letter C
+- englishletter_3: Find the letter D
