@@ -1,0 +1,5 @@
+const CACHE='rona-garden-v1',FILES=['./','index.html','style.css','app.js','13-audio.js','manifest.webmanifest','icon.svg','11-icon-192.png','12-icon-512.png'];
+self.addEventListener('install',e=>e.waitUntil((async()=>{let c=await caches.open(CACHE);await c.addAll(FILES);await self.skipWaiting();})()));
+self.addEventListener('activate',e=>e.waitUntil((async()=>{for(let k of await caches.keys())if(k.startsWith('rona-garden-')&&k!==CACHE)await caches.delete(k);await self.clients.claim();})()));
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==location.origin)return;e.respondWith((async()=>{const c=await caches.open(CACHE);return await c.match(e.request)||(e.request.mode==='navigate'?await c.match('index.html'):fetch(e.request));})());});
+self.addEventListener('message',e=>{if(e.data?.type==='CHECK_CACHE')e.waitUntil((async()=>{let c=await caches.open(CACHE),ok=true;for(let f of FILES)if(!await c.match(f))ok=false;if(ok)e.source?.postMessage({type:'CACHE_OK'});})());});
