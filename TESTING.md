@@ -9,3 +9,5 @@
 7. Check landscape/portrait on the actual tablet. Print or copy the paper sheet with parent help.
 
 The app has no cloud backup. Any exported art lives in Downloads and must be deleted there. Chrome's microphone permission is separate from the app's temporary recording and can persist until revoked in site settings.
+
+Required before device-ready wording: native Hebrew listener checks every clip, especially ה/ו names, English findword clips and spoken songs; educator checks all stroke models; Android user checks decorative emoji and real install/offline/mic/pen behavior. These are not certified by automated checks.
