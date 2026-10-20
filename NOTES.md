@@ -1,24 +1,12 @@
-# Current status: improvement round 2
+# V2 review build 1, 20 October 2026
+22 activity entries across four redesigned worlds. New original SVG scene art, original human doll, per-game environments, 3 session-only levels and short replay loops. No child history, accounts, ads, analytics or paid service.
 
-18 activity entries across 4 worlds: 8 Hebrew letters (identification, 4-piece tap puzzle, copying, memory, spoken verse, 3x3 lotto with a free flower square); math quantities 0-10, concrete + and - up to 5 or optional 10, writing, memory, verse and 3x3 number lotto; 12 English picture words, A-D recognition/copying, audio-picture memory and spoken verse; drawing and simple costume colors/accessories.
+New: dotted/ruled notebook with open practice row; first-word assembly and word notebook; 3/6/8-pair memory; shape recognition with rotation and continuing patterns; virtual slime mixing, textures and pointer stretching; doll wardrobe with 5 editable attributes; 1/2/3-animal care sequence; free/pattern bead lab. Math operations scale to 5/10/20; legacy lotto and English alphabet retain fixed content. Level choice changes meaningful challenges in the new games but is not an adaptive curriculum.
 
-94 pre-generated synthetic speech clips, 24kbps mono, in voice-0.js through voice-12.js (~1.1MB). No runtime TTS or cloud child audio. Songs are spoken original verses, not sung recordings. Letter-name/voice and guided print-letter shape quality require native adult/educator review. These are copying aids, not certified handwriting lessons. English/math copying has no stroke direction curriculum.
+Audio: 60+ new/revised free build-time Hebrew clips with shorter instructions, speech-only pronunciation marks, 0.91 pace and 32kbps mono. Same synthetic engine as v1, not a new premium voice. Native listener must judge diction, especially ה/ו. No runtime remote TTS, no paid services. Songs remain spoken verses. Existing unchanged legacy voice clips remain bundled.
 
-Recording is parent-enabled per session, explicit-start, max 15 seconds, memory only, no upload/transcription. Active/pending recording suppresses narration; playback and narration pause each other. Exit/hidden page deletes recordings and stops tracks. Chrome microphone permission can persist separately until revoked in site settings. Gate is accidental-access friction, not authentication.
+Privacy: levels, rewards, designs, progress and voice are session-only. Parent-gated recording capped at 15 seconds and deleted on exit/hidden page. Browser mic permission is separate. Offline cache includes all new code and audio. Close every old tab to activate a waiting update.
 
-Offline package is versioned and atomic for consistency. Readiness follows a complete cache check; download errors/timeouts shown. Update waits for old clients to close, not ordinary reload. Real Android install, data-URL PNG icons with SVG fallback, tablet orientation, physical mic/stylus/palm rejection remain unverified. No account, analytics, ads, profile, scores or persistent learning history. Flowers are session-only; saved art is explicit parent-gated PNG download, no cloud backup.
+Not certified: real Android install, microphone, pen/palm and orientation; native Hebrew listener approval; educator check of word/letter models. No handwriting recognition or grading, and ruled print models do not prescribe stroke direction. Zoo is a general care game, not species-specific feeding advice. Slime is virtual only, not a chemical recipe. Characters and art are original, no licensed franchise imagery.
 
-Round 2 fixes: task narration separate from feedback, full repeat, early math reveal retains story meaning, selected quantity reset, solved puzzle locked, owned pointer ID and pen/finger switching, pending-request ownership, audio exclusivity, replayable English memory speakers, numbered separated starts and sequenced path animation, SVG canvas flower stickers, home session garden, 3x3 lotto. Parent can choose challenge; game reopening intentionally resets to basic until session level choice is designed more clearly.
-
-Deferred: phonics, full alphabets/lowercase/final letters, 20-100, stories, rhymes, recognition/grading, permanent child voice, singing and recorded clap. Tap-swap is the drag alternative. No mandatory round path because free choice is a requirement.
-
-Automated browser checks: every activity at 320/390/1024/1280, no horizontal overflow/runtime errors; offline reload including audio; fake mic cap/delete/exit/late request and no upload requests; actual success/clear actions. These do not replace a five-year-old usability session or physical Android tests.
-
-Post-round-2 verification also completed both lotto boards, confirmed pen ownership rejects palm move/up without ending the pen stroke, confirmed finger use after pen, and reproduced deferred request A/B timing with the fixed pending flag. English revealed/matched audio cards replay via SVG speaker. Completed-lotto Repeat is safe.
-
-Lotto now has its own Hebrew spoken introduction and completion clip, bringing bundled speech to 94 clips in 13 voice chunks. Each game remains optional and no history is saved.
-
-## Final review cycle 3
-Preserved English writing bridge and puzzle letter replay after success, accurate lotto preview, math lotto title, wrong-lotto visual hint, quantity number previews no longer change task Repeat. Removed obsolete duplicate local packs; they never reached the remote repository.
-
-Before calling this device-ready: real Android tablet test (stylus/palm, microphone prompt, PWA install/offline and emoji), a native Hebrew listener through every clip (especially ה/ו letter names, English target prompts and spoken songs), and an early-years educator glance at all print-letter paths. These remain unverified and are not implied by browser tests.
+Deferred: full Hebrew alphabet/phonics/niqqud curriculum, full English alphabet, 21-100 operations, human/sung audio, persistent designs or child profiles. No external dependency at runtime.
