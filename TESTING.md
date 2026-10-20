@@ -1,13 +1,4 @@
-# Manual device check
+# V2 tests
+Automated Chrome: all 22 entries at 3 levels, 320/390/1024/1280 widths, no overflow or runtime errors. Completed slime, zoo, shape choice, word assembly, word notebook and memory at each level. Completed doll styling and hardest bead pattern. Fake microphone recording exits cleanly. Fresh offline reload includes v2 code and voice. These are browser tests, not Android device or native-listener certification.
 
-1. In Android Chrome, open the site online. Wait for the offline-ready message, then install through the app button or Chrome menu.
-2. Close all existing copies before an update, then reopen. A waiting update does not replace an active game.
-3. Turn airplane mode on. Open all worlds, play a word/number, and try recording with parent permission.
-4. Check denied mic permission still allows play. Verify recording stops at 15 seconds and when leaving or switching apps.
-5. Test pen and finger separately, then together. Palm behavior depends on hardware; no universal palm rejection claim.
-6. Listen to every Hebrew letter name and English word with an adult. Guided print-letter paths need educator approval before used as writing instruction.
-7. Check landscape/portrait on the actual tablet. Print or copy the paper sheet with parent help.
-
-The app has no cloud backup. Any exported art lives in Downloads and must be deleted there. Chrome's microphone permission is separate from the app's temporary recording and can persist until revoked in site settings.
-
-Required before device-ready wording: native Hebrew listener checks every clip, especially ה/ו names, English findword clips and spoken songs; educator checks all stroke models; Android user checks decorative emoji and real install/offline/mic/pen behavior. These are not certified by automated checks.
+Review-source tests included in archive: test-v2.mjs and completion-v2.mjs, with JSON results. Required: independent UI/content/privacy review, adult Hebrew audio listening, educator content pass and physical tablet usage.
