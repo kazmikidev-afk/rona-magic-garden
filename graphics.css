@@ -4,3 +4,5 @@
 @media(max-width:540px){.home-3d{border-radius:18px}.hero-3d .home-3d{height:280px}.hero-3d h1{font-size:34px}.slime-stage.render-stage{min-height:390px}.slime-stage.has-3d .recipe{font-size:15px}.runway.render-stage{min-height:490px}.zoo-scene.render-stage{height:320px}}
 @media(prefers-reduced-motion:reduce){.world{transition:none}}
 .hero-3d>div:first-child{width:calc(45% - 14px);min-width:0}.hero-3d .home-3d{width:calc(55% - 14px)}.render-stage.render-failed>canvas{display:none}@media(max-width:800px){.hero-3d>div:first-child,.hero-3d .home-3d{width:100%}}
+@media(max-width:800px){.hero-3d h1 br{display:block}.hero-3d h1 br:after{content:' '}}
+.slime-stage.has-3d>canvas{touch-action:none!important}
