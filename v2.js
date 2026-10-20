@@ -53,3 +53,5 @@ home();
 const pacedRender=renderActivity;renderActivity=function(){let before=quietNarration,seen=seenInstructions.has(activity);quietNarration=quietNarration||seen;pacedRender();quietNarration=before;if(seen&&round>0&&!before)previewClip('short_'+activity);};
 // Notify about an update without forcing a reload or discarding a child's creation.
 navigator.serviceWorker?.getRegistration().then(r=>{if(!r)return;function notice(){if(!r.waiting)return;let x=document.createElement('p');x.className='update-notice';x.textContent='גרסה חדשה מוכנה. בסיום המשחק סגרו את כל חלונות הגן ופתחו מחדש.';document.querySelector('footer').append(x);}notice();r.addEventListener('updatefound',()=>r.installing?.addEventListener('statechange',notice));});
+// Resolve home dynamically so the header does not retain the v1 function binding.
+$('#home').onclick=()=>home();
