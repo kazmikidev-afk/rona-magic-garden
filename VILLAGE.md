@@ -1,0 +1,6 @@
+# Rona's rainbow garden
+An original short, age-five-oriented princess and unicorn game. Three guided tasks: water three flowers, collect three crown stars, then match three shapes to complete a rainbow bridge. No timer, losing, shop, ads, chat, account or child-data collection. Progress resets on exit/reload. All instructions have bundled free synthetic Hebrew audio; chime sounds respect mute. Repeat instruction and replay controls included. Touch targets at least 64px. Works offline once the app confirms its cache is ready. Existing Android add-to-home-screen button retained.
+
+Original procedural stylized WebGL castle, princess, unicorn, flowers, stars and bridge. SVG scene fallback if WebGL is unavailable. Reduced-motion preference disables idle movement. Single scene with resources disposed on exit, capped pixel ratio 1.4 and frame rate about 20fps. No external runtime assets or services.
+
+Checked in desktop Chrome at 390 and 1024 CSS px: all tasks and wrong-shape recovery, no overflow, all five voice clips decode, offline reload. Physical OnePlus GPU performance, installation and native Hebrew diction are not yet verified. This is a brief first adventure, not a large open-world game or photorealistic graphics.
