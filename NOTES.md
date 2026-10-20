@@ -19,3 +19,8 @@ Legacy games now receive illustrated world panels and individual theme surfaces.
 Compromises: lab unlocks are session badges/stickers rather than persistent stored artwork. Zoo illustrates environment/behaviour differences and does not teach species diet facts. Some inherited activities retain their narrower fixed curriculum. Notebook uses dotted print font outlines, not handwriting recognition or a certified stroke order.
 
 Regression caught and fixed: header Home had retained the original v1 function binding. It now resolves the current home and session collection correctly. Blank/stroke notebook, checked recipe/outfit, silent level switch and colour-independent shape regression tests pass.
+
+## Review improvement round 2
+All runtime scripts use defer, leaving a lightweight loading message visible during first download. Packs are still downloaded together (not lazy per world) to preserve predictable offline packaging. Notebook named pen swatches expose aria-pressed and a valid initial selection. Hard notebook starts with blank ruled rows and a model above, optional dotted hint; medium keeps the dotted guide. Discovery sticker is placed by the child and retained as a normal undoable stroke-model element. Visual tasks use visual hints; zoo clears prior error text; hard dress brief states hairstyle requirement; puzzle selection has a high-contrast outline. Badge names differ by activity. Adult gate now asks a random two-digit addition answer instead of displaying a 7/3 sequence. This remains friction, not security or proof of adulthood.
+
+Native Hebrew diction remains unjudged. Actual Android install, pen/palm, mic and orientation remain device checks. All content/recording still session-only, with no tracking or accounts.
