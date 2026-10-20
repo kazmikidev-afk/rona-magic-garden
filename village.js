@@ -3,7 +3,7 @@
 (()=>{
 const waterIcon='<svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><path d="M32 4Q9 31 12 42A21 21 0 0 0 53 42Q55 30 32 4Z" fill="#78bbd4"/><path d="M23 37Q18 47 30 50" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>',starIcon='<svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><path d="M32 4L40 23 61 25 45 39 50 60 32 49 14 60 19 39 3 25 24 23Z" fill="#e8bb5b"/></svg>',rainbowIcon='<svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><path d="M6 55V36A26 26 0 0 1 58 36V55" fill="none" stroke="#d99bc7" stroke-width="9"/><path d="M15 55V36A17 17 0 0 1 49 36V55" fill="none" stroke="#d1b0e4" stroke-width="8"/><path d="M23 55V36A9 9 0 0 1 41 36V55" fill="none" stroke="#93c9d4" stroke-width="7"/></svg>';let disposeScene=null,stage=0,count=0,busy=false,epoch=0;
 const steps=[['v_water','הפרחים צמאים. לחצי על טיפת המים שלוש פעמים.','משקים את הפרחים','💧'],['v_stars','נאסוף שלושה כוכבים לכתר. לחצי על כוכב.','אוספים כוכבים לכתר','⭐'],['v_bridge','נבנה גשר. בחרי את הצורה שמופיעה בתמונה.','משלימים את גשר הקשת','🌈']];
-const oldHome=home,oldRender=renderActivity,oldCleanup=cleanup;
+const oldHome=home,oldRender=renderActivity,oldCleanup=cleanup,oldStart=start;start=function(id){if(id==='village')launch();else oldStart(id);};
 cleanup=function(){epoch++;disposeScene?.();disposeScene=null;oldCleanup();};
 function launch(){world='studio';activity='village';stage=0;count=0;busy=false;renderActivity();}
 renderActivity=function(){if(activity==='village')garden();else oldRender();};
