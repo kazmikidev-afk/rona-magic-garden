@@ -4,3 +4,5 @@ Automated Chrome: all 22 entries at 3 levels, 320/390/1024/1280 widths, no overf
 Review-source tests included in archive: test-v2.mjs and completion-v2.mjs, with JSON results. Required: independent UI/content/privacy review, adult Hebrew audio listening, educator content pass and physical tablet usage.
 
 Round 2: all prior rendering/completion regressions pass. Ten targeted checks pass: script defer, selected pen, hard guide hint, pen aria selection, discovery sticker retained after next-stroke undo, puzzle selected state, zoo stale-error clearing, explicit hairstyle requirement, empty gate rejected and correct adult answer opens. Actual notebook/sticker pixels inspected. v1-to-v2 browser upgrade test passed for previous round; repeat with this release before completion.
+
+Final: four prior suites pass; added empty-after-undo completion block, easy skin/hair personalisation, medium accessory check, English badge retention, shop visual retry and first-install no-false-update tests. v1-to-final upgrade/offline passed. Final live byte comparison required before delivery.
