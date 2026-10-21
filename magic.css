@@ -98,3 +98,63 @@ header button{min-width:56px;min-height:56px;font-size:18px;padding:10px 14px}
 .lotto button{background:#fff;border:3px solid #cdeede;border-radius:22px;color:#4a2d63;box-shadow:0 5px 0 #4a2d6310}
 .lotto .matched{background:#d8f3e4;border-color:#4f9fa0}
 .blueprint{background:#f3ecff;border:2px solid #e4d2fb;border-radius:22px}
+/* סבב 4: סרגל עליון קומפקטי בטלפון + חימום פרטים */
+@media(max-width:700px){
+main{padding:12px 10px 26px}
+main>.eyebrow{font-size:12px;letter-spacing:.3px;margin:0 0 2px}
+.title-row{margin:2px 0 4px;align-items:center}
+.title-row h1{font-size:24px;letter-spacing:0;margin:0}
+.mission{font-size:12px;padding:5px 10px}
+.top-tools{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;overflow-x:auto;margin:6px 0 10px;padding:2px 2px 8px;justify-content:start}
+.top-tools>button{flex:none;min-height:46px;font-size:13px;padding:6px 12px;border-radius:16px}
+.top-tools .levelbar{flex:none;display:flex;flex-wrap:nowrap;gap:5px}
+.top-tools .levelbar button{min-height:46px;font-size:13px;padding:6px 10px;border-radius:16px;white-space:nowrap}
+.skip-voice{min-height:46px!important;font-size:13px!important}
+.panel{margin-top:2px}
+}
+/* חרוזים: חוט זהב וחרוזים מבריקים */
+.game-beads{background:#fdf6fb}
+.bead-pattern>span{box-shadow:inset -4px -5px 8px #00000026,0 2px 3px #4a2d6326;border:2px solid #fff}
+#bracelet ellipse{stroke:#e3b95c;stroke-width:9;filter:drop-shadow(0 3px 3px #4a2d6324)}
+#beadArt>circle{stroke:#ffffffb8;stroke-width:3;filter:drop-shadow(0 3px 3px #4a2d6330)}
+.game-beads .swatch{border:3px solid #fff;box-shadow:inset -5px -6px 10px #00000022,0 5px 0 #4a2d6318,0 10px 20px #a05fc41c;border-radius:50%}
+/* מחברת: תחושת נייר חמה */
+.game-write,.game-firstwords{background:#fffdf4}
+.drawing.notebook{background:#fffdf6;border:3px solid #f0d9e8;border-radius:18px;box-shadow:0 10px 24px #a05fc414}
+.notebook-label{color:#7a4a9e}
+.writing-cue{color:#a86fbe}
+/* צורות: דגם חמים יותר */
+.game-shapes{background:#fdf9fd}
+.blueprint{box-shadow:inset 0 0 0 2px #fff,0 8px 20px #a05fc412}
+.shape-model .geo{filter:drop-shadow(0 5px 0 #4a2d6318)}
+/* אנגלית: אייקוני בחירה על כרטיס */
+.game-english .choice,.game-alphabet .choice{background:linear-gradient(155deg,#fff,#fdf0f8)}
+.game-english .choice .symbol-icon,.game-alphabet .choice .symbol-icon{filter:drop-shadow(0 4px 6px #a05fc426)}
+/* שיר: כפתורי ניגון */
+.game-song{background:#f9f7ff}
+.game-song .primary{font-size:20px}
+/* סבב 5: רגע נצנוץ בהצלחה */
+.panel{position:relative}
+.magic-burst{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:5;border-radius:inherit}
+.magic-burst i{position:absolute;font-style:normal;font-size:30px;color:#e8559e;opacity:0;animation:burst-pop 1.5s ease-out forwards;text-shadow:0 2px 6px #fff}
+.magic-burst i:nth-child(3n){color:#d99a20}
+.magic-burst i:nth-child(4n){color:#8a4fc0}
+.magic-burst i:nth-child(5n){color:#4faf88}
+.magic-burst i:nth-child(1){left:8%;top:70%}
+.magic-burst i:nth-child(2){left:20%;top:40%;animation-delay:.08s}
+.magic-burst i:nth-child(3){left:32%;top:64%;animation-delay:.05s}
+.magic-burst i:nth-child(4){left:44%;top:30%;animation-delay:.12s}
+.magic-burst i:nth-child(5){left:55%;top:58%;animation-delay:.03s}
+.magic-burst i:nth-child(6){left:66%;top:36%;animation-delay:.1s}
+.magic-burst i:nth-child(7){left:76%;top:62%;animation-delay:.06s}
+.magic-burst i:nth-child(8){left:86%;top:44%;animation-delay:.14s}
+.magic-burst i:nth-child(9){left:14%;top:24%;animation-delay:.16s}
+.magic-burst i:nth-child(10){left:38%;top:14%;animation-delay:.2s}
+.magic-burst i:nth-child(11){left:60%;top:18%;animation-delay:.11s}
+.magic-burst i:nth-child(12){left:82%;top:20%;animation-delay:.18s}
+.magic-burst i:nth-child(13){left:26%;top:80%;animation-delay:.13s}
+.magic-burst i:nth-child(14){left:70%;top:80%;animation-delay:.07s}
+@keyframes burst-pop{0%{opacity:0;transform:translateY(16px) scale(.3)}18%{opacity:1}100%{opacity:0;transform:translateY(-46px) scale(1.15)}}
+.feedback:not(:empty){animation:feedback-pop .4s ease-out}
+@keyframes feedback-pop{0%{transform:scale(.92);opacity:.4}100%{transform:scale(1);opacity:1}}
+@media(prefers-reduced-motion:reduce){.magic-burst{display:none}.feedback:not(:empty){animation:none}}
