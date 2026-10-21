@@ -211,3 +211,6 @@ main>.eyebrow{font-size:12px;letter-spacing:.3px;margin:0 0 2px}
 .aid-tens{color:#b489c9}.aid-ones{color:#e8a93d}
 .word-model{transition:opacity .5s}
 .word-model.model-hidden{opacity:0;visibility:hidden}
+
+.lotto.lotto-4{grid-template-columns:repeat(4,1fr)}.lotto.lotto-4 .choice{min-height:70px;font-size:30px}
+.lotto-progress{text-align:center;font-size:17px;color:#6b4d89;margin:2px 0 8px;font-weight:600}
