@@ -46,4 +46,7 @@ levelBar=function(fn){const div=levelBarBefore(fn);[...div.children].forEach((b,
 document.body.classList.add('magic');
 // הרינדור הראשוני קרה לפני שהשכבה נטענה — מרנדרים מחדש את הבית
 if(!world&&!activity)home();
+// סבב 5: פרץ נצנצים ברגע הצלחה
+const feedbackBefore=feedback;
+feedback=function(ok){const was=roundWon;feedbackBefore(ok);if(!ok||was)return;const panel=document.querySelector('.panel');if(!panel)return;const burst=document.createElement('div');burst.className='magic-burst';burst.setAttribute('aria-hidden','true');burst.innerHTML='<i>\u2726</i>'.repeat(14);panel.appendChild(burst);setTimeout(()=>burst.remove(),1700);};
 })();
