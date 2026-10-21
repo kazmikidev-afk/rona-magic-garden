@@ -31,6 +31,7 @@ zoo:IC('#f0e2ff','<ellipse cx="32" cy="40" rx="13" ry="11" fill="#e8a93d"/><elli
 beads:IC('#f0e2ff','<path d="M8 16Q32 6 56 16" stroke="#a08bc4" stroke-width="3" fill="none"/><circle cx="14" cy="18" r="7" fill="#f06fae"/><circle cx="26" cy="15" r="7" fill="#ffd166"/><circle cx="38" cy="15" r="7" fill="#8fd3c7"/><circle cx="50" cy="18" r="7" fill="#a05fc4"/><path d="M8 16Q10 34 20 44M56 16Q54 34 44 44" stroke="#a08bc4" stroke-width="3" fill="none"/><circle cx="24" cy="46" r="7" fill="#7ba7e8"/><circle cx="40" cy="46" r="7" fill="#f7a8c4"/>'),
 draw:IC('#f0e2ff','<path d="M32 8A24 24 0 0 0 32 56Q26 56 26 50Q26 45 32 45H38A12 12 0 0 0 50 33Q50 8 32 8Z" fill="#fff" stroke="#c9a8ee" stroke-width="3"/><circle cx="22" cy="22" r="4.5" fill="#f06fae"/><circle cx="34" cy="16" r="4.5" fill="#ffd166"/><circle cx="43" cy="26" r="4.5" fill="#8fd3c7"/><circle cx="18" cy="34" r="4.5" fill="#7ba7e8"/>')
 };
+window.gameIcons=icons;
 const ICONBG={he:'#ffd9ec',math:'#cdeede',en:'#d3e4ff',studio:'#e5d3ff'};
 const LEVEL_EMOJI=['🌱','🌷','👑'];
 const sparkleSvg=`<svg class="hero-sparkles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">${spark(30,40,10,'#ffffffcc')}${spark(370,60,12,'#ffffffb0')}${spark(200,20,7,'#ffd166aa')}${spark(60,270,9,'#ffffff90')}${spark(350,250,8,'#ffd9ec')}</svg>`;
