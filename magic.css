@@ -91,3 +91,10 @@ header button{min-width:56px;min-height:56px;font-size:18px;padding:10px 14px}
 .game-number{display:none!important}
 .levelbar{flex-wrap:wrap;overflow-x:visible}
 .levelbar button{min-height:54px}
+/* סבב 3: גרפיקת משחקים */
+.rich-memory button{background:linear-gradient(150deg,#c9a8ee,#a05fc4);border:3px solid #fff;border-radius:22px;box-shadow:0 5px 0 #a78fd0;color:#fff}
+.rich-memory .flipped{background:#fff7fb;color:#5b3678;border-color:#f3d9ec}
+.rich-memory .matched{background:#d8f3e4;border-color:#7cc7ae;box-shadow:0 5px 0 #9dcbb2;color:#2e7d5b}
+.lotto button{background:#fff;border:3px solid #cdeede;border-radius:22px;color:#4a2d63;box-shadow:0 5px 0 #4a2d6310}
+.lotto .matched{background:#d8f3e4;border-color:#4f9fa0}
+.blueprint{background:#f3ecff;border:2px solid #e4d2fb;border-radius:22px}
