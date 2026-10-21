@@ -197,3 +197,9 @@ main>.eyebrow{font-size:12px;letter-spacing:.3px;margin:0 0 2px}
 @media(prefers-reduced-motion:reduce){.choice .symbol-icon{animation:none}}
 .object .symbol-icon{width:1.5em;height:1.5em;animation:icon-bob 3s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){.object .symbol-icon{animation:none}}
+/* mistakes: mark wrong tile + escalate with a golden hint after 2 misses */
+@keyframes wrong-shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.wrong-pick{opacity:.45;filter:grayscale(.5);animation:wrong-shake .35s ease}
+@keyframes hint-pulse{50%{box-shadow:0 0 0 7px #f6c65b,0 0 26px #f6c65baa}}
+.hint-glow{box-shadow:0 0 0 4px #f6c65b,0 0 18px #f6c65b88!important;animation:hint-pulse 1.1s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.wrong-pick,.hint-glow{animation:none}}
