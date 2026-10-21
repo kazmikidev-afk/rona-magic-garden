@@ -49,4 +49,13 @@ if(!world&&!activity)home();
 // סבב 5: פרץ נצנצים ברגע הצלחה
 const feedbackBefore=feedback;
 feedback=function(ok){const was=roundWon;feedbackBefore(ok);if(!ok||was)return;const panel=document.querySelector('.panel');if(!panel)return;const burst=document.createElement('div');burst.className='magic-burst';burst.setAttribute('aria-hidden','true');burst.innerHTML='<i>\u2726</i>'.repeat(14);panel.appendChild(burst);setTimeout(()=>burst.remove(),1700);};
+// סבב 6: שדרוג קלפי הזיכרון - גודל, צלילים ונצנוץ זוג
+function memTone(freqs,gap,dur,type,vol){try{if(typeof muted!=='undefined'&&muted)return;audioCtx=audioCtx||new AudioContext();audioCtx.resume();const now=audioCtx.currentTime;freqs.forEach((f,i)=>{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.value=f;o.connect(g);g.connect(audioCtx.destination);const t=now+i*gap;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+dur);o.start(t);o.stop(t+dur+.02);});}catch(e){}}
+const flipSnd=()=>memTone([720],0,.09,'triangle',.06);
+const backSnd=()=>memTone([420],0,.09,'triangle',.05);
+const matchSnd=()=>memTone([523,659,784],.08,.32,'sine',.09);
+let lastMatchSnd=0;
+function watchMemory(grid){if(grid.dataset.watched)return;grid.dataset.watched='1';new MutationObserver(muts=>{for(const m of muts){if(m.type!=='attributes')continue;const b=m.target,was=m.oldValue||'';if(b.classList.contains('flipped')&&!was.includes('flipped'))flipSnd();else if(!b.classList.contains('flipped')&&was.includes('flipped')&&!b.classList.contains('matched'))backSnd();if(b.classList.contains('matched')&&!was.includes('matched')){const t=Date.now();if(t-lastMatchSnd>400){lastMatchSnd=t;matchSnd();}}}}).observe(grid,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});}
+const richMemoryBefore=richMemory;
+richMemory=function(){richMemoryBefore();const g=document.querySelector('.rich-memory');if(g){g.dataset.cols=g.children.length<=6?'2':'3';watchMemory(g);}};
 })();
