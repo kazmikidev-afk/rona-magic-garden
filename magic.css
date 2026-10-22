@@ -237,3 +237,12 @@ main>.eyebrow{font-size:12px;letter-spacing:.3px;margin:0 0 2px}
 .sort-bin{display:flex;flex-direction:column;align-items:center;min-width:140px;font-size:20px}
 .sort-bin-icons{display:flex;gap:2px;margin-top:6px}
 .sort-bin-icons .symbol-icon{width:30px;height:30px}
+
+/* Keep Back available even after scrolling a long game menu. */
+header{position:sticky;top:0;z-index:30;background:#fff5fbee;backdrop-filter:blur(10px)}
+#back:disabled{opacity:.45;cursor:default}
+@media(max-width:700px){
+header{display:grid;grid-template-columns:1.25fr 1.25fr 1fr 44px;gap:6px;padding:9px 10px}
+header button{min-width:0;min-height:48px;padding:7px 5px;font-size:16px;white-space:nowrap;border-radius:16px}
+header #home{font-size:15px}header #sound{font-size:20px}
+}
