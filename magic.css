@@ -223,3 +223,17 @@ main>.eyebrow{font-size:12px;letter-spacing:.3px;margin:0 0 2px}
 .medal small{color:#b48c3d;font-weight:700;font-size:15px}
 @keyframes medal-in{0%{transform:scale(.2) rotate(-14deg) translateY(80px);opacity:0}100%{transform:none;opacity:1}}
 .collection-badge b svg{width:34px;height:34px;display:block;margin:0 auto 4px}
+
+.rhyme-word{display:flex;align-items:center;justify-content:center;gap:16px;font-size:44px;font-weight:800;color:#4a2d63;margin:14px 0}
+.rhyme-word .symbol-icon{width:76px;height:76px}
+.syl-word{font-size:56px}
+.rhyme-choices .choice{display:flex;flex-direction:column;align-items:center;gap:4px}
+.rhyme-choices .symbol-icon{width:56px;height:56px}
+.rhyme-label{font-size:22px;font-weight:700}
+.sort-item{display:flex;justify-content:center;margin:8px 0;min-height:120px;align-items:center}
+.sort-item .symbol-icon{width:110px;height:110px}
+.sort-progress{text-align:center;font-size:17px;color:#6b4d89;font-weight:600;margin:4px 0}
+.sort-bins{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.sort-bin{display:flex;flex-direction:column;align-items:center;min-width:140px;font-size:20px}
+.sort-bin-icons{display:flex;gap:2px;margin-top:6px}
+.sort-bin-icons .symbol-icon{width:30px;height:30px}
