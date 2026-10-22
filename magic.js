@@ -43,7 +43,7 @@ const homeBefore=home;
 home=function(){homeBefore();const hero=document.querySelector('.v2hero');if(hero&&!hero.querySelector('.hero-sparkles'))hero.insertAdjacentHTML('afterbegin',sparkleSvg);};
 // כריכת תפריט עולם: אייקון מצויר לכל משחק, ניקוי מספור
 const openWorldBefore=openWorld;
-openWorld=function(k){openWorldBefore(k);document.querySelectorAll('.games .menu-choice').forEach((wrap,i)=>{const card=wrap.querySelector('.game-card');const b=card?.querySelector('b');const id=games[k]?.[i]?.[0];const icon=icons[id];if(!card||!b||!icon)return;b.innerHTML=b.innerHTML.replace(/^\s*\d+\s*/,'');if(!b.querySelector('.game-icon')){const span=document.createElement('span');span.className='game-icon';span.style.background=ICONBG[k]||'#f0e2ff';span.innerHTML=icon.svg;b.prepend(span);}});};
+openWorld=function(k){openWorldBefore(k);document.querySelectorAll('.games .menu-choice').forEach((wrap,i)=>{const card=wrap.querySelector('.game-card');const b=card?.querySelector('b');const id=wrap.dataset.gameId;const icon=icons[id];if(!card||!b||!icon)return;b.innerHTML=b.innerHTML.replace(/^\s*\d+\s*/,'');if(!b.querySelector('.game-icon')){const span=document.createElement('span');span.className='game-icon';span.style.background=ICONBG[k]||'#f0e2ff';span.innerHTML=icon.svg;b.prepend(span);}});};
 // כריכת בחירת רמה: אימוג'י ידידותי
 const levelBarBefore=levelBar;
 levelBar=function(fn){const div=levelBarBefore(fn);[...div.children].forEach((b,i)=>{if(!b.textContent.includes(LEVEL_EMOJI[i]))b.textContent=`${LEVEL_EMOJI[i]} ${b.textContent}`;});return div;};
@@ -62,4 +62,19 @@ let lastMatchSnd=0;
 function watchMemory(grid){if(grid.dataset.watched)return;grid.dataset.watched='1';new MutationObserver(muts=>{for(const m of muts){if(m.type!=='attributes')continue;const b=m.target,was=m.oldValue||'';if(b.classList.contains('flipped')&&!was.includes('flipped'))flipSnd();else if(!b.classList.contains('flipped')&&was.includes('flipped')&&!b.classList.contains('matched'))backSnd();if(b.classList.contains('matched')&&!was.includes('matched')){const t=Date.now();if(t-lastMatchSnd>400){lastMatchSnd=t;matchSnd();}}}}).observe(grid,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});}
 const richMemoryBefore=richMemory;
 richMemory=function(){richMemoryBefore();const g=document.querySelector('.rich-memory');if(g){g.dataset.cols=g.children.length<=6?'2':'3';watchMemory(g);}};
+})();
+
+// Consistent one-level-back navigation, including long menus and dialogs.
+(()=>{
+const back=btn('→ אחורה',()=>{
+ if(modal.open){modal.close();return;}
+  if(activity&&world){openWorld(world);return;}
+ home();
+},'nav-back');
+back.id='back';back.setAttribute('aria-label','אחורה לתפריט הקודם');
+document.querySelector('header').prepend(back);
+function updateBack(){back.disabled=!world&&!activity;}
+const previousView=view;view=function(html){previousView(html);updateBack();};
+$('#closeModal').textContent='→ אחורה';
+updateBack();
 })();
