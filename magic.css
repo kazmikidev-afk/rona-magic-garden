@@ -457,3 +457,4 @@ header #home{font-size:15px}header #sound{font-size:20px}
  body[data-activity=slime] .slime-stage.has-3d .recipe{top:4px;left:5px;right:5px;font-size:13px;padding:4px}
  body[data-activity=slime] .slime-stage.has-3d #labStatus{bottom:3px;left:5px;right:5px;font-size:12px;padding:3px}
 }
+@media(max-width:700px){body[data-activity=slime] .slime-stage{height:180px!important}}
