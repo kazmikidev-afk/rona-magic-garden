@@ -1,0 +1,69 @@
+/* Landscape / short screens: give the game the room, not the chrome. */
+@media (orientation:landscape) and (max-height:900px){
+ header{padding:5px 12px;gap:8px}
+ header button{min-height:46px;padding:4px 14px;font-size:17px}
+ body[data-screen=play] main,body[data-screen=menu] main{padding:4px 18px 6px;min-height:0}
+ body[data-screen=play] footer,body[data-screen=menu] footer{display:none}
+ body[data-screen=play] .eyebrow,body[data-screen=menu] .eyebrow{display:none}
+ body[data-screen=play] .legacy-scene{display:none}
+ body[data-screen=play] .feedback:empty{display:none}
+ body[data-screen=play] .title-row{margin:0}
+ body[data-screen=play] h1{font-size:24px;line-height:1.1;margin:2px 0}
+ body[data-screen=play] .panel{padding:8px 14px;margin-top:4px}
+ body[data-screen=play] .instruction{font-size:19px;margin:3px 0;line-height:1.25}
+ body[data-screen=play] .session-garden{display:none}
+ body[data-screen=play] .tools{margin:3px 0}
+}
+@media (orientation:landscape) and (max-height:900px){
+ body[data-screen=play] .top-tools>button,body[data-screen=play] .top-tools .levelbar button{min-height:44px;height:44px;padding-block:2px}
+ body[data-screen=play] .top-tools{gap:8px}
+ body[data-screen=play] .lab-layout,body[data-screen=play] .fashion-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:12px;align-items:start}
+ body[data-activity=village] .fairy-heading small,body[data-activity=village] .fairy-heading p{display:none}
+ body[data-screen=play] .care-status{padding:4px;margin:4px 0}
+ body[data-screen=play] .guide{margin:2px 0;font-size:14px}
+}
+@media (orientation:landscape) and (max-height:700px){
+ body[data-screen=play] .title-row h1{display:none}
+}
+@media (orientation:landscape) and (max-height:900px){
+ body[data-screen=play] canvas.drawing:not(.notebook){height:calc(100vh - 335px)!important;min-height:140px}
+ body[data-screen=play] canvas.drawing.notebook{height:calc(100vh - 490px)!important;min-height:110px}
+ body[data-screen=play] .writing-cue,body[data-screen=play] .record-row p,body[data-screen=play] .guide{display:none}
+ body[data-screen=play] .record-row{margin-top:2px;padding-top:2px}
+ body[data-screen=play] .zoo-scene.render-stage{height:calc(100vh - 375px)!important;min-height:120px!important}
+ body[data-screen=play] .slime-stage{height:calc(100vh - 190px)!important;min-height:150px!important}
+ body[data-screen=play] #bracelet{height:calc(100vh - 355px);width:auto;max-width:100%;margin-inline:auto;display:block}
+ body[data-screen=play] #fairyStage{height:calc(100vh - 420px)!important;min-height:110px}
+ body[data-screen=play] .fairy-heading{padding:2px 0}body[data-screen=play] .fairy-progress{margin:3px 0}body[data-screen=play] .fairy-task{margin:3px 0}
+ body[data-screen=play] .runway.render-stage{height:calc(100vh - 170px)!important;min-height:200px}
+}
+@media (orientation:landscape) and (max-height:900px){
+ body[data-activity=dress] .wardrobe{max-height:calc(100vh - 190px);overflow-y:auto;overscroll-behavior:contain;padding-inline-end:4px}
+ body[data-activity=dress] .runway.render-stage{height:calc(100vh - 195px)!important}
+}
+/* Tablet portrait */
+@media (orientation:portrait) and (min-width:701px){
+ body[data-screen=play] footer,body[data-screen=menu] footer{display:none}
+ body[data-screen=play] .eyebrow{display:none}
+ body[data-screen=play] .legacy-scene{display:none}
+ body[data-screen=play] .feedback:empty,body[data-screen=play] .session-garden{display:none}
+ body[data-activity=write] canvas.drawing.notebook{height:calc(100vh - 830px)!important;min-height:150px}
+ body[data-activity=write] .writing-cue,body[data-activity=write] .record-row p,body[data-activity=write] .guide{display:none}
+ body[data-activity=slime] .slime-stage{height:calc(100vh - 880px)!important;min-height:200px!important}
+ body[data-activity=dress] .runway.render-stage{height:calc(100vh - 760px)!important;min-height:280px}
+ body[data-activity=dress] .wardrobe{max-height:300px;overflow-y:auto;overscroll-behavior:contain}
+ body[data-activity=draw] canvas.drawing{height:calc(100vh - 740px)!important;min-height:240px}
+}
+/* Touch, tap targets, legibility (all sizes) */
+button,.choice,.piece,.world,.game-card{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+body[data-screen=play] main,body[data-screen=menu] main{user-select:none;-webkit-user-select:none}
+header #sound{min-width:44px;min-height:44px}
+@media(max-width:700px){header{grid-template-columns:1.25fr 1.25fr 1fr minmax(44px,.5fr)!important}
+ body[data-screen=play] .top-tools>button,body[data-screen=play] .top-tools .levelbar button{font-size:13px!important}
+ body[data-screen=play] .mission,body[data-screen=play] .eyebrow{font-size:12px!important}
+ .eyebrow{font-size:12px!important}}
+button:active:not(:disabled){transform:scale(.96);transition:transform .08s}
+#repeat.speaking{animation:speakpulse 1s ease-in-out infinite;box-shadow:0 0 0 3px #d98bd0}
+body.voice-blocked #repeat{animation:speakpulse .9s ease-in-out infinite;box-shadow:0 0 0 3px #f2a65a}
+@keyframes speakpulse{50%{transform:scale(1.07)}}
+@media(prefers-reduced-motion:reduce){#repeat.speaking,body.voice-blocked #repeat{animation:none}}
