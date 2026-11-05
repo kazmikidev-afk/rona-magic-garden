@@ -15,13 +15,10 @@
  body[data-screen=play] #bracelet{height:calc(100vh - 355px);height:calc(100dvh - 355px)}
  body[data-screen=play] #fairyStage{height:calc(100vh - 420px)!important;height:calc(100dvh - 420px)!important}
  body[data-screen=play] .runway.render-stage{height:calc(100vh - 170px)!important;height:calc(100dvh - 170px)!important}
- body[data-activity=dress] .wardrobe{max-height:calc(100vh - 250px);max-height:calc(100dvh - 250px)}
- body[data-activity=dress] .runway.render-stage{height:calc(100vh - 195px)!important;height:calc(100dvh - 195px)!important}
 }
 @media (orientation:portrait) and (min-width:701px){
  body[data-activity=write] canvas.drawing.notebook{height:calc(100vh - 880px)!important;height:calc(100dvh - 880px)!important;min-height:130px}
  body[data-activity=slime] .slime-stage{height:calc(100vh - 900px)!important;height:calc(100dvh - 900px)!important;min-height:150px!important}
- body[data-activity=dress] .runway.render-stage{height:calc(100vh - 770px)!important;height:calc(100dvh - 770px)!important}
  body[data-activity=draw] canvas.drawing{height:calc(100vh - 750px)!important;height:calc(100dvh - 750px)!important}
  body[data-activity=zoo] .zoo-scene{height:calc(100vh - 714px);height:calc(100dvh - 714px);min-height:240px}
  body[data-activity=zoo] .care-status{margin-top:8px}
@@ -135,9 +132,6 @@
  body[data-screen=play] .habitat .shelter{padding:16px}
  body[data-screen=play] .care-status h2{font-size:15px;margin:2px 0}
  body[data-screen=play] .care-step{font-size:12px;padding:4px 8px}
- body[data-screen=play] .runway.render-stage{height:calc(100vh - 120px)!important;height:calc(100dvh - 120px)!important;min-height:140px;padding:8px}
- body[data-activity=dress] .wardrobe{max-height:calc(100vh - 105px);max-height:calc(100dvh - 105px)}
- body[data-activity=dress] .fashion-doll{height:calc(100vh - 190px);height:calc(100dvh - 190px);min-height:130px}
  body[data-screen=play] .wardrobe h2{font-size:14px;margin:2px 0}
  body[data-screen=play] .wardrobe h3{font-size:12px;margin:4px 0 2px}
  body[data-screen=play] .wardrobe button{font-size:12px;padding:4px 8px;min-height:44px}
@@ -191,12 +185,6 @@
  body[data-screen=play] .skip-voice{display:none}
 }
 
-/* ---- 3. dress: the finish button belongs under the wardrobe, always visible ---- */
-.wardrobe{display:flex;flex-direction:column}
-#fashionDone{order:99;margin-top:8px}
-@media (orientation:landscape){
- #fashionDone{position:sticky;bottom:6px;z-index:3;box-shadow:0 -8px 14px #fff}
-}
 
 /* ---- 4. quantity/shop on phone portrait: use the whole screen, bigger objects ---- */
 @media (max-width:700px) and (orientation:portrait){
@@ -327,29 +315,19 @@
  body[data-screen=play] .lotto.lotto-4{grid-template-columns:repeat(6,minmax(0,1fr));max-width:min(94vw,760px)}
  body[data-screen=play] .memory.rich-memory[data-cols="4"]{grid-template-columns:repeat(8,minmax(0,1fr));max-width:min(96vw,760px)}
  body[data-screen=play] .memory.rich-memory[data-cols="3"]{grid-template-columns:repeat(6,minmax(0,1fr));max-width:min(96vw,560px)}
- body[data-activity=dress] .fashion-layout{grid-template-columns:minmax(100px,140px) minmax(0,1fr);align-items:stretch}
- body[data-activity=dress] .runway.render-stage{height:calc(100dvh - 128px)!important;min-height:140px;padding:4px}
- body[data-activity=dress] .wardrobe{max-height:calc(100dvh - 122px);display:flex;flex-direction:column;gap:2px}
  body[data-activity=dress] .wardrobe h2{font-size:14px;margin:0}
- body[data-activity=dress] .wardrobe #wardrobe{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain}
  body[data-activity=dress] .wardrobe h3{font-size:12px;margin:2px 0}
  body[data-activity=dress] .wardrobe .tools button{font-size:12px;padding:2px 8px;min-height:44px}
- body[data-activity=dress] #fashionDone{flex:none;order:99;min-height:44px}
 }
 @media (orientation:portrait){
  body[data-screen=play] footer{display:none}
  body[data-screen=play] main{padding-bottom:10px}
  body[data-activity=dress] .eyebrow{display:none}
- body[data-activity=dress] .fashion-layout{display:flex;flex-direction:column;gap:8px}
- body[data-activity=dress] .runway.render-stage{height:clamp(140px,calc(100dvh - 880px),260px)!important;min-height:140px}
- body[data-activity=dress] .runway #fashionCaption{font-size:13px;margin:4px 0 0}
- body[data-activity=dress] .wardrobe{max-height:none;display:flex;flex-direction:column;gap:2px;padding-top:4px}
  body[data-activity=dress] .wardrobe h2{display:none}
  body[data-activity=dress] .wardrobe section{margin:2px 0}
  body[data-activity=dress] .wardrobe h3{font-size:13px;margin:2px 0}
  body[data-activity=dress] .wardrobe .tools{gap:5px;margin:2px 0}
  body[data-activity=dress] .wardrobe .tools button{font-size:13px;padding:3px 10px;min-height:44px}
- body[data-activity=dress] #fashionDone{position:sticky;bottom:6px;order:99}
 }
 @media (orientation:landscape) and (max-height:500px) and (max-width:700px){
  header{grid-template-columns:44px 44px 44px 1fr!important;gap:6px}
@@ -357,3 +335,45 @@
  header #sound{justify-self:end}
  body[data-screen=play] .top-tools{left:56px;right:auto;transform:none;max-width:calc(100vw - 190px)}
     }
+
+/* ---- 8. dress studio layout (product review, 5.11): reliable stage share, caption
+   as a normal block outside the runway, finish pinned outside the scroll pane ---- */
+.runway-col{display:flex;flex-direction:column;min-height:0;min-width:0;gap:4px}
+body[data-activity=dress] .runway.render-stage{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center}
+body[data-activity=dress] .runway #doll{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center}
+body[data-activity=dress] .runway .fashion-doll{height:100%;width:auto;max-width:100%;max-height:100%}
+body[data-activity=dress] #fashionCaption{flex:none;margin:2px 0;text-align:center;position:static}
+body[data-activity=dress] .wardrobe{display:flex;flex-direction:column;min-height:0;min-width:0}
+body[data-activity=dress] .wardrobe #wardrobe{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+body[data-activity=dress] #fashionDone{flex:none;order:99;margin-top:8px}
+@media (orientation:landscape){
+ body[data-activity=dress] .fashion-layout{grid-template-columns:minmax(220px,2fr) minmax(0,3fr);grid-template-rows:minmax(0,1fr);align-items:stretch}
+}
+@media (orientation:landscape) and (max-height:900px){
+ body[data-activity=dress] .fashion-layout{height:calc(100vh - 195px);height:calc(100dvh - 195px)}
+}
+@media (orientation:landscape) and (max-height:500px){
+ body[data-activity=dress] .fashion-layout{height:calc(100vh - 128px);height:calc(100dvh - 128px);grid-template-columns:minmax(180px,34%) minmax(0,1fr);gap:10px}
+ body[data-activity=dress] .runway.render-stage{padding:6px}
+ body[data-activity=dress] .wardrobe{max-height:none;gap:2px}
+ body[data-activity=dress] #fashionCaption{font-size:12px}
+}
+@media (orientation:portrait){
+ body[data-activity=dress] .fashion-layout{display:flex;flex-direction:column;gap:8px}
+ body[data-activity=dress] .runway-col{flex:1 1 auto;min-height:190px}
+ body[data-activity=dress] .wardrobe{flex:0 1 auto;max-height:none}
+ body[data-activity=dress] #fashionCaption{font-size:13px}
+}
+@media (max-width:700px) and (orientation:portrait){
+ body[data-activity=dress] .fashion-layout{height:calc(100vh - 262px);height:calc(100dvh - 262px)}
+}
+@media (min-width:701px) and (orientation:portrait){
+ body[data-activity=dress] .fashion-layout{height:calc(100vh - 375px);height:calc(100dvh - 375px)}
+ body[data-activity=dress] .runway-col{min-height:290px}
+ body[data-activity=dress] .wardrobe{flex:0 1 auto;min-height:0;width:min(640px,100%);margin-inline:auto}
+ body[data-activity=dress] .wardrobe h2,body[data-activity=dress] .wardrobe h3{text-align:center}
+ body[data-activity=dress] .wardrobe .tools{justify-content:center}
+}
+
+/* ---- 9. update-ready chip: shown when a new version activates mid-game ---- */
+.update-ready{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);z-index:1200;min-height:44px;padding:8px 18px;border-radius:22px;background:#2f536d;color:#fff;border:0;box-shadow:0 6px 18px #24334644;font-size:15px}
