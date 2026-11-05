@@ -15,7 +15,7 @@
  body[data-screen=play] #bracelet{height:calc(100vh - 355px);height:calc(100dvh - 355px)}
  body[data-screen=play] #fairyStage{height:calc(100vh - 420px)!important;height:calc(100dvh - 420px)!important}
  body[data-screen=play] .runway.render-stage{height:calc(100vh - 170px)!important;height:calc(100dvh - 170px)!important}
- body[data-activity=dress] .wardrobe{max-height:calc(100vh - 190px);max-height:calc(100dvh - 190px)}
+ body[data-activity=dress] .wardrobe{max-height:calc(100vh - 250px);max-height:calc(100dvh - 250px)}
  body[data-activity=dress] .runway.render-stage{height:calc(100vh - 195px)!important;height:calc(100dvh - 195px)!important}
 }
 @media (orientation:portrait) and (min-width:701px){
@@ -46,19 +46,19 @@
 @media (orientation:landscape) and (max-height:500px){
  body{font-size:15px}
  header{position:fixed;top:0;inset-inline:0;z-index:900;height:46px;padding:2px 8px;gap:6px;background:#fffaf3ee;border-bottom:1px solid #59436622;max-width:none}
- header button{min-height:40px;min-width:44px;padding:2px 10px;font-size:15px}
+ header button{min-height:44px;min-width:44px;padding:2px 10px;font-size:15px}
  header button span{display:none}
  main{padding:48px 10px 4px!important;min-height:0}
  footer{display:none}
- body[data-screen=play] .top-tools{position:fixed;top:3px;left:50%;transform:translateX(-50%);z-index:901;margin:0;gap:6px;width:max-content}
- body[data-screen=play] .top-tools>button,body[data-screen=play] .top-tools .levelbar button{min-height:40px;height:40px;padding:2px 9px;font-size:12px!important}
+ body[data-screen=play] .top-tools{position:fixed;top:1px;left:50%;transform:translateX(-50%);z-index:901;margin:0;gap:6px;width:max-content;max-width:calc(100vw - 116px)}
+ body[data-screen=play] .top-tools>button,body[data-screen=play] .top-tools .levelbar button{min-height:44px;height:44px;padding:2px 7px;font-size:12px!important}
  body[data-screen=play] .top-tools .levelbar{gap:4px}
  body[data-screen=play] .title-row{display:none}
  body[data-screen=play] .panel{padding:5px 10px;margin-top:2px;border-radius:14px}
  body[data-screen=play] .instruction{font-size:15px;margin:1px 0;line-height:1.25}
  body[data-screen=play] .feedback{min-height:0;font-size:14px;margin:2px 0}
  body[data-screen=play] .tools{margin:2px 0;gap:6px}
- body[data-screen=play] .tools button,body[data-screen=play] #nextTools button{min-height:38px;padding:4px 10px;font-size:14px}
+ body[data-screen=play] .tools button,body[data-screen=play] #nextTools button{min-height:44px;padding:3px 10px;font-size:14px}
  body[data-screen=play] .choices{gap:8px;margin:4px auto}
  body[data-screen=play] .choice{min-height:52px;font-size:30px;padding:4px}
  body[data-screen=play] .choice small{font-size:13px!important}
@@ -100,13 +100,14 @@
  body[data-screen=play] .notebook-label{font-size:18px;margin-bottom:2px}
  body[data-screen=play] .notebook-label small{font-size:11px}
  body[data-screen=play] canvas.drawing:not(.notebook){height:calc(100vh - 225px)!important;height:calc(100dvh - 225px)!important;min-height:90px}
- body[data-screen=play] canvas.drawing.notebook{height:calc(100vh - 278px)!important;height:calc(100dvh - 278px)!important;min-height:64px}
- body[data-screen=play] .record-row button{min-height:40px;padding:2px 8px;font-size:12px}
+ body[data-screen=play] canvas.drawing.notebook{height:calc(100vh - 288px)!important;height:calc(100dvh - 288px)!important;min-height:64px}
+ body[data-screen=play] .record-row button{min-height:44px;padding:2px 8px;font-size:12px}
+ body[data-activity=alphabet] .choices{grid-template-columns:repeat(4,minmax(0,1fr))}
  body[data-screen=play] .rhyme-word{font-size:22px;margin:2px 0;gap:8px}
  body[data-screen=play] .rhyme-word .symbol-icon{width:40px;height:40px}
  body[data-screen=play] .syl-word{font-size:30px}
  body[data-screen=play] .spoken-choice{max-width:110px;gap:4px}
- body[data-screen=play] .word-listen{min-height:40px;font-size:12px;padding:2px 6px}
+ body[data-screen=play] .word-listen{min-height:44px;font-size:12px;padding:2px 6px}
  body[data-screen=play] .letter-lesson{gap:14px}
  body[data-screen=play] .letter-lesson>strong{font-size:52px}
  body[data-screen=play] .letter-lesson>div{font-size:16px}
@@ -125,10 +126,10 @@
  body[data-screen=play] .recipe{font-size:13px;padding:6px;margin:4px 0}
  body[data-screen=play] .lab-controls{padding:0}
  body[data-screen=play] .lab-controls h2{font-size:15px;margin:2px 0}
- body[data-screen=play] .lab-controls>button{margin:3px 0;min-height:38px}
+ body[data-screen=play] .lab-controls>button{margin:3px 0;min-height:44px}
  body[data-screen=play] .lab-tag{font-size:10px}
  body[data-screen=play] .slime-stage p{font-size:12px;margin:2px}
- body[data-screen=play] .zoo-scene.render-stage{height:calc(100vh - 195px)!important;height:calc(100dvh - 195px)!important;min-height:110px!important}
+ body[data-screen=play] .zoo-scene.render-stage{height:calc(100vh - 205px)!important;height:calc(100dvh - 205px)!important;min-height:110px!important}
  body[data-screen=play] #animal{width:80px;height:80px;bottom:35px;left:calc(50% - 40px)}
  body[data-screen=play] .habitat span{font-size:11px;padding:6px 12px}
  body[data-screen=play] .habitat .shelter{padding:16px}
@@ -139,9 +140,9 @@
  body[data-activity=dress] .fashion-doll{height:calc(100vh - 190px);height:calc(100dvh - 190px);min-height:130px}
  body[data-screen=play] .wardrobe h2{font-size:14px;margin:2px 0}
  body[data-screen=play] .wardrobe h3{font-size:12px;margin:4px 0 2px}
- body[data-screen=play] .wardrobe button{font-size:12px;padding:4px 8px;min-height:40px}
+ body[data-screen=play] .wardrobe button{font-size:12px;padding:4px 8px;min-height:44px}
  body[data-screen=play] #fashionCaption{font-size:12px;margin:2px}
- body[data-screen=play] #bracelet{height:calc(100vh - 213px)!important;height:calc(100dvh - 213px)!important;min-height:96px}
+ body[data-screen=play] #bracelet{height:calc(100vh - 223px)!important;height:calc(100dvh - 223px)!important;min-height:96px}
  body[data-screen=play] .bead-pattern>span{width:18px;height:18px}
  body[data-screen=play] .bead-pattern{gap:5px}
  body[data-screen=play] .swatch{width:40px;height:40px}
@@ -179,8 +180,8 @@
  body[data-screen=menu] .game-card{min-height:0!important;padding:8px 44px 8px 10px!important}
  body[data-screen=menu] .game-card b{font-size:15px}
  body[data-screen=menu] .game-card small,.game-number,.game-arrow{display:none}
- body[data-screen=menu] .preview{min-width:40px;min-height:40px;bottom:3px;padding:4px}
- body[data-screen=menu] #worldLevel .levelbar button{min-height:36px;font-size:12px;padding:2px 8px}
+ body[data-screen=menu] .preview{min-width:44px;min-height:44px;bottom:3px;padding:4px}
+ body[data-screen=menu] #worldLevel .levelbar button{min-height:44px;font-size:12px;padding:2px 8px}
  body[data-screen=menu] .village-entry{margin:6px 0;padding:8px 14px;gap:8px}
  body[data-screen=menu] .village-entry strong{font-size:16px;margin:2px 0}
  body[data-screen=menu] .village-entry small{font-size:12px}
@@ -214,7 +215,7 @@
  body[data-screen=home] .home-3d,body[data-screen=home] .v2hero>svg{display:none}
  body[data-screen=home] .v2hero{min-height:0;display:block}
  body[data-screen=home] .v2hero>div{max-width:none}
- body[data-screen=home] #homeLevel .levelbar button{min-height:36px;font-size:12px;padding:2px 8px}
+ body[data-screen=home] #homeLevel .levelbar button{min-height:44px;font-size:12px;padding:2px 8px}
  body[data-screen=home] .village-entry{margin:6px 0;padding:6px 14px;gap:8px;min-height:0}
  body[data-screen=home] .village-entry strong{font-size:16px;margin:2px 0}
  body[data-screen=home] .village-entry small{font-size:12px}
@@ -287,7 +288,7 @@
 @media (max-width:700px) and (orientation:portrait){
  .home-3d,.home-3d canvas{max-height:130px}
  .world .scene{height:70px!important}
- #homeLevel .levelbar button{min-height:40px;font-size:13px;padding:4px 10px}
+ #homeLevel .levelbar button{min-height:44px;font-size:13px;padding:4px 10px}
 }
 @media (min-width:701px) and (max-width:1000px) and (min-height:501px){
  .v2hero>svg{display:none}
@@ -299,3 +300,60 @@
  .world .scene{height:100px}
  .world{min-height:0}
             }
+
+@media (orientation:landscape) and (min-height:501px) and (max-height:850px){
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"]{grid-template-columns:repeat(8,minmax(0,1fr));max-width:min(96vw,900px);gap:6px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] button{min-height:0;font-size:22px;border-radius:14px;padding:3px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] .card-back{font-size:20px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] .card-back small{font-size:11px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] .memory-picture .symbol-icon{width:36px;height:36px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] .memory-picture small{font-size:12px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] .dots{font-size:11px}
+}
+@media (min-width:701px) and (orientation:portrait){
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"]{grid-template-columns:repeat(4,minmax(0,1fr));max-width:560px;gap:6px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] button{min-height:0;font-size:22px;border-radius:14px;padding:3px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] .card-back{font-size:20px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] .card-back small{font-size:11px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] .memory-picture .symbol-icon{width:34px;height:34px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] .memory-picture small{font-size:12px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="4"] .dots{font-size:10px}
+ body[data-activity=memory] .memory.rich-memory[data-cols="3"]{grid-template-columns:repeat(4,minmax(0,1fr));max-width:460px;gap:6px}
+}
+@media (orientation:landscape) and (max-height:500px){
+ body[data-screen=play] .top-tools{left:50%;right:auto;transform:translateX(-50%);max-width:calc(100vw - 292px)}
+ body[data-screen=play] .top-tools .skip-voice{display:none}
+ body[data-screen=play] button,body[data-screen=play] .choice,body[data-screen=play] .piece{min-height:44px}
+ body[data-screen=play] .lotto.lotto-4{grid-template-columns:repeat(6,minmax(0,1fr));max-width:min(94vw,760px)}
+ body[data-screen=play] .memory.rich-memory[data-cols="4"]{grid-template-columns:repeat(8,minmax(0,1fr));max-width:min(96vw,760px)}
+ body[data-screen=play] .memory.rich-memory[data-cols="3"]{grid-template-columns:repeat(6,minmax(0,1fr));max-width:min(96vw,560px)}
+ body[data-activity=dress] .fashion-layout{grid-template-columns:minmax(100px,140px) minmax(0,1fr);align-items:stretch}
+ body[data-activity=dress] .runway.render-stage{height:calc(100dvh - 128px)!important;min-height:140px;padding:4px}
+ body[data-activity=dress] .wardrobe{max-height:calc(100dvh - 122px);display:flex;flex-direction:column;gap:2px}
+ body[data-activity=dress] .wardrobe h2{font-size:14px;margin:0}
+ body[data-activity=dress] .wardrobe #wardrobe{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+ body[data-activity=dress] .wardrobe h3{font-size:12px;margin:2px 0}
+ body[data-activity=dress] .wardrobe .tools button{font-size:12px;padding:2px 8px;min-height:44px}
+ body[data-activity=dress] #fashionDone{flex:none;order:99;min-height:44px}
+}
+@media (orientation:portrait){
+ body[data-screen=play] footer{display:none}
+ body[data-screen=play] main{padding-bottom:10px}
+ body[data-activity=dress] .eyebrow{display:none}
+ body[data-activity=dress] .fashion-layout{display:flex;flex-direction:column;gap:8px}
+ body[data-activity=dress] .runway.render-stage{height:clamp(140px,calc(100dvh - 880px),260px)!important;min-height:140px}
+ body[data-activity=dress] .runway #fashionCaption{font-size:13px;margin:4px 0 0}
+ body[data-activity=dress] .wardrobe{max-height:none;display:flex;flex-direction:column;gap:2px;padding-top:4px}
+ body[data-activity=dress] .wardrobe h2{display:none}
+ body[data-activity=dress] .wardrobe section{margin:2px 0}
+ body[data-activity=dress] .wardrobe h3{font-size:13px;margin:2px 0}
+ body[data-activity=dress] .wardrobe .tools{gap:5px;margin:2px 0}
+ body[data-activity=dress] .wardrobe .tools button{font-size:13px;padding:3px 10px;min-height:44px}
+ body[data-activity=dress] #fashionDone{position:sticky;bottom:6px;order:99}
+}
+@media (orientation:landscape) and (max-height:500px) and (max-width:700px){
+ header{grid-template-columns:44px 44px 44px 1fr!important;gap:6px}
+ header button{width:44px}
+ header #sound{justify-self:end}
+ body[data-screen=play] .top-tools{left:56px;right:auto;transform:none;max-width:calc(100vw - 190px)}
+    }
