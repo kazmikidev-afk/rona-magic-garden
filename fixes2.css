@@ -1,0 +1,301 @@
+/* Overhaul round 2 (5.11): fix-stage after independent QA.
+   1. Real compact mode for phone landscape (max-height ~500px) - QA P1.
+   2. Letters/rich memory too tall on tablet landscape - QA P1.
+   3. Dress "finish" button pinned, not lost inside the scrolling wardrobe - QA P2.
+   4. Quantity board fills the phone portrait screen, bigger objects - QA P2.
+   5. dvh so "fits one screen" also holds in a browser tab with an address bar - QA P2.
+   6. Tablet-portrait leftovers (slime/zoo/beads), puzzle/svg safety. */
+
+/* ---- 5. dvh: override every vh-based fit with the dynamic viewport height ---- */
+@media (orientation:landscape) and (max-height:900px){
+ body[data-screen=play] canvas.drawing:not(.notebook){height:calc(100vh - 335px)!important;height:calc(100dvh - 335px)!important}
+ body[data-screen=play] canvas.drawing.notebook{height:calc(100vh - 490px)!important;height:calc(100dvh - 490px)!important}
+ body[data-screen=play] .zoo-scene.render-stage{height:calc(100vh - 375px)!important;height:calc(100dvh - 375px)!important}
+ body[data-screen=play] .slime-stage{height:calc(100vh - 190px)!important;height:calc(100dvh - 190px)!important}
+ body[data-screen=play] #bracelet{height:calc(100vh - 355px);height:calc(100dvh - 355px)}
+ body[data-screen=play] #fairyStage{height:calc(100vh - 420px)!important;height:calc(100dvh - 420px)!important}
+ body[data-screen=play] .runway.render-stage{height:calc(100vh - 170px)!important;height:calc(100dvh - 170px)!important}
+ body[data-activity=dress] .wardrobe{max-height:calc(100vh - 190px);max-height:calc(100dvh - 190px)}
+ body[data-activity=dress] .runway.render-stage{height:calc(100vh - 195px)!important;height:calc(100dvh - 195px)!important}
+}
+@media (orientation:portrait) and (min-width:701px){
+ body[data-activity=write] canvas.drawing.notebook{height:calc(100vh - 880px)!important;height:calc(100dvh - 880px)!important;min-height:130px}
+ body[data-activity=slime] .slime-stage{height:calc(100vh - 900px)!important;height:calc(100dvh - 900px)!important;min-height:150px!important}
+ body[data-activity=dress] .runway.render-stage{height:calc(100vh - 770px)!important;height:calc(100dvh - 770px)!important}
+ body[data-activity=draw] canvas.drawing{height:calc(100vh - 750px)!important;height:calc(100dvh - 750px)!important}
+ body[data-activity=zoo] .zoo-scene{height:calc(100vh - 714px);height:calc(100dvh - 714px);min-height:240px}
+ body[data-activity=zoo] .care-status{margin-top:8px}
+ body[data-activity=zoo] .care-status h2{margin:4px 0;font-size:20px}
+ body[data-activity=zoo] .care-step{padding:6px 10px;font-size:14px}
+ body[data-activity=beads] #bracelet{height:calc(100vh - 700px);height:calc(100dvh - 700px);min-height:240px}
+ body[data-activity=beads] .bead-pattern>span{width:24px;height:24px}
+}
+
+/* ---- 2. rich memory on tablet landscape (e.g. 1280x800): 4 columns, capped cards ---- */
+@media (orientation:landscape) and (min-height:501px) and (max-height:850px){
+ .memory.rich-memory[data-cols="3"],.memory.rich-memory[data-cols="4"]{grid-template-columns:repeat(4,1fr);max-width:620px}
+ .rich-memory button{aspect-ratio:1;min-height:0;padding:6px;font-size:36px}
+ .rich-memory .symbol-icon{width:52px;height:52px}
+ .rich-memory .memory-picture .symbol-icon{width:56px;height:56px}
+ .rich-memory .memory-picture small{font-size:14px}
+ .rich-memory .card-back{font-size:26px}
+ .rich-memory .dots{font-size:18px}
+}
+
+/* ---- 1. short landscape (phones sideways, ~360-500px tall): one slim chrome row ---- */
+@media (orientation:landscape) and (max-height:500px){
+ body{font-size:15px}
+ header{position:fixed;top:0;inset-inline:0;z-index:900;height:46px;padding:2px 8px;gap:6px;background:#fffaf3ee;border-bottom:1px solid #59436622;max-width:none}
+ header button{min-height:40px;min-width:44px;padding:2px 10px;font-size:15px}
+ header button span{display:none}
+ main{padding:48px 10px 4px!important;min-height:0}
+ footer{display:none}
+ body[data-screen=play] .top-tools{position:fixed;top:3px;left:50%;transform:translateX(-50%);z-index:901;margin:0;gap:6px;width:max-content}
+ body[data-screen=play] .top-tools>button,body[data-screen=play] .top-tools .levelbar button{min-height:40px;height:40px;padding:2px 9px;font-size:12px!important}
+ body[data-screen=play] .top-tools .levelbar{gap:4px}
+ body[data-screen=play] .title-row{display:none}
+ body[data-screen=play] .panel{padding:5px 10px;margin-top:2px;border-radius:14px}
+ body[data-screen=play] .instruction{font-size:15px;margin:1px 0;line-height:1.25}
+ body[data-screen=play] .feedback{min-height:0;font-size:14px;margin:2px 0}
+ body[data-screen=play] .tools{margin:2px 0;gap:6px}
+ body[data-screen=play] .tools button,body[data-screen=play] #nextTools button{min-height:38px;padding:4px 10px;font-size:14px}
+ body[data-screen=play] .choices{gap:8px;margin:4px auto}
+ body[data-screen=play] .choice{min-height:52px;font-size:30px;padding:4px}
+ body[data-screen=play] .choice small{font-size:13px!important}
+ body[data-screen=play] .lotto{gap:6px;max-width:min(540px,92vw)}
+ body[data-screen=play] .lotto .choice{min-height:46px;font-size:23px}
+ body[data-screen=play] .lotto-progress{margin:1px 0;font-size:13px}
+ body[data-screen=play] .memory{gap:6px;margin:4px auto}
+ body[data-screen=play] .memory button{height:54px;font-size:22px;padding:2px}
+ body[data-screen=play] .memory.rich-memory{max-width:600px;gap:6px}
+ body[data-screen=play] .memory.rich-memory[data-cols="3"],body[data-screen=play] .memory.rich-memory[data-cols="4"]{grid-template-columns:repeat(6,1fr)}
+ body[data-screen=play] .memory.rich-memory[data-cols="2"]{grid-template-columns:repeat(4,1fr);max-width:430px}
+ body[data-screen=play] .rich-memory button{aspect-ratio:1;min-height:0;padding:2px;font-size:24px}
+ body[data-screen=play] .rich-memory .symbol-icon{width:36px;height:36px}
+ body[data-screen=play] .rich-memory .memory-picture .symbol-icon{width:38px;height:38px}
+ body[data-screen=play] .rich-memory .memory-picture small{font-size:11px}
+ body[data-screen=play] .rich-memory .dots{font-size:13px}
+ body[data-screen=play] .card-back{font-size:18px}
+ body[data-screen=play] .card-back small{display:none}
+ body[data-screen=play] .memory-header{font-size:12px;padding:0 4px}
+ body[data-screen=play] .puzzle{grid-template-columns:repeat(2,74px);gap:4px}
+ body[data-screen=play] .piece{height:74px;width:74px}
+ body[data-screen=play] .big-symbol{font-size:30px!important;line-height:1.1}
+ body[data-screen=play] .objects{gap:8px;padding:4px}
+ body[data-screen=play] .object{font-size:30px;min-width:48px;min-height:48px;padding:2px}
+ body[data-screen=play] .equation{font-size:22px;margin:2px 0}
+ body[data-screen=play] .friend-pop{font-size:30px!important}
+ body[data-screen=play] .blueprint{padding:6px}
+ body[data-screen=play] .shape-model{min-height:70px;gap:6px}
+ body[data-screen=play] .shape-model .geo,.shape-choices .geo{width:56px;height:56px;max-width:56px}
+ body[data-screen=play] .shape-model>.geo:only-child{width:72px;height:72px}
+ body[data-screen=play] .missing{font-size:36px}
+ body[data-screen=play] .shape-choices button{padding:4px}
+ body[data-screen=play] .word-postcard{padding:6px}
+ body[data-screen=play] .word-model{font-size:30px;letter-spacing:4px}
+ body[data-screen=play] .word-slots{min-height:38px;font-size:26px;letter-spacing:6px}
+ body[data-screen=play] .word-postcard .eyebrow{display:none}
+ body[data-screen=play] .letter-tile{width:48px;min-height:50px;font-size:24px;border-bottom-width:3px}
+ body[data-screen=play] .letter-bank{gap:6px}
+ body[data-screen=play] .notebook-label{font-size:18px;margin-bottom:2px}
+ body[data-screen=play] .notebook-label small{font-size:11px}
+ body[data-screen=play] canvas.drawing:not(.notebook){height:calc(100vh - 225px)!important;height:calc(100dvh - 225px)!important;min-height:90px}
+ body[data-screen=play] canvas.drawing.notebook{height:calc(100vh - 278px)!important;height:calc(100dvh - 278px)!important;min-height:64px}
+ body[data-screen=play] .record-row button{min-height:40px;padding:2px 8px;font-size:12px}
+ body[data-screen=play] .rhyme-word{font-size:22px;margin:2px 0;gap:8px}
+ body[data-screen=play] .rhyme-word .symbol-icon{width:40px;height:40px}
+ body[data-screen=play] .syl-word{font-size:30px}
+ body[data-screen=play] .spoken-choice{max-width:110px;gap:4px}
+ body[data-screen=play] .word-listen{min-height:40px;font-size:12px;padding:2px 6px}
+ body[data-screen=play] .letter-lesson{gap:14px}
+ body[data-screen=play] .letter-lesson>strong{font-size:52px}
+ body[data-screen=play] .letter-lesson>div{font-size:16px}
+ body[data-screen=play] .letter-lesson .symbol-icon{width:56px;height:56px}
+ body[data-screen=play] .lesson-caption{font-size:14px;margin:2px}
+ body[data-screen=play] .lesson-question{font-size:16px;gap:8px}
+ body[data-screen=play] .lesson-question .symbol-icon{width:44px;height:44px}
+ body[data-screen=play] .sort-item{min-height:64px;margin:2px}
+ body[data-screen=play] .sort-item .symbol-icon{width:56px;height:56px}
+ body[data-screen=play] .sort-progress{font-size:12px;margin:1px}
+ body[data-screen=play] .sort-bin{min-width:0;font-size:13px;padding:6px 4px}
+ body[data-screen=play] .sort-bin-icons .symbol-icon{width:18px;height:18px}
+ body[data-screen=play] .song{font-size:15px;line-height:1.5}
+ body[data-screen=play] .slime-stage{height:calc(100vh - 120px)!important;height:calc(100dvh - 120px)!important;min-height:120px!important;padding:6px}
+ body[data-screen=play] #slimeSvg{min-height:0}
+ body[data-screen=play] .recipe{font-size:13px;padding:6px;margin:4px 0}
+ body[data-screen=play] .lab-controls{padding:0}
+ body[data-screen=play] .lab-controls h2{font-size:15px;margin:2px 0}
+ body[data-screen=play] .lab-controls>button{margin:3px 0;min-height:38px}
+ body[data-screen=play] .lab-tag{font-size:10px}
+ body[data-screen=play] .slime-stage p{font-size:12px;margin:2px}
+ body[data-screen=play] .zoo-scene.render-stage{height:calc(100vh - 195px)!important;height:calc(100dvh - 195px)!important;min-height:110px!important}
+ body[data-screen=play] #animal{width:80px;height:80px;bottom:35px;left:calc(50% - 40px)}
+ body[data-screen=play] .habitat span{font-size:11px;padding:6px 12px}
+ body[data-screen=play] .habitat .shelter{padding:16px}
+ body[data-screen=play] .care-status h2{font-size:15px;margin:2px 0}
+ body[data-screen=play] .care-step{font-size:12px;padding:4px 8px}
+ body[data-screen=play] .runway.render-stage{height:calc(100vh - 120px)!important;height:calc(100dvh - 120px)!important;min-height:140px;padding:8px}
+ body[data-activity=dress] .wardrobe{max-height:calc(100vh - 105px);max-height:calc(100dvh - 105px)}
+ body[data-activity=dress] .fashion-doll{height:calc(100vh - 190px);height:calc(100dvh - 190px);min-height:130px}
+ body[data-screen=play] .wardrobe h2{font-size:14px;margin:2px 0}
+ body[data-screen=play] .wardrobe h3{font-size:12px;margin:4px 0 2px}
+ body[data-screen=play] .wardrobe button{font-size:12px;padding:4px 8px;min-height:40px}
+ body[data-screen=play] #fashionCaption{font-size:12px;margin:2px}
+ body[data-screen=play] #bracelet{height:calc(100vh - 213px)!important;height:calc(100dvh - 213px)!important;min-height:96px}
+ body[data-screen=play] .bead-pattern>span{width:18px;height:18px}
+ body[data-screen=play] .bead-pattern{gap:5px}
+ body[data-screen=play] .swatch{width:40px;height:40px}
+ body[data-screen=play] .fairy-heading{display:none}
+ body[data-screen=play] .fairy-progress{margin:2px 0;gap:5px}
+ body[data-screen=play] .fairy-progress span{font-size:14px;padding:4px 10px;min-width:36px}
+ body[data-screen=play] .fairy-progress svg{width:18px;height:18px}
+ body[data-screen=play] #fairyStage{height:calc(100vh - 255px)!important;height:calc(100dvh - 255px)!important;min-height:96px}
+ body[data-screen=play] .fairy-task{margin:4px 0;gap:8px}
+ body[data-screen=play] .fairy-task h2{font-size:15px}
+ body[data-screen=play] .fairy-task p{font-size:13px}
+ body[data-screen=play] .fairy-task button{min-width:44px;min-height:44px;font-size:20px}
+ body[data-screen=play] .fairy-actions{gap:6px}
+ body[data-screen=play] .fairy-actions button{min-width:70px;min-height:44px;font-size:17px;padding:4px 10px}
+ body[data-screen=play] .bridge-model{font-size:14px}
+ body[data-screen=play] .bridge-model b{font-size:20px}
+ body[data-screen=play] .name-model{font-size:24px!important;letter-spacing:3px}
+ body[data-screen=play] #vStatus{min-height:0;font-size:13px}
+ /* home + world menus */
+ body[data-screen=home] .hero,body[data-screen=home] .v2hero{min-height:0;padding:0;gap:10px}
+ body[data-screen=home] .hero .art,body[data-screen=home] .v2hero>.scene,body[data-screen=home] .v2hero .scene{display:none}
+ body[data-screen=home] h1{font-size:24px;margin:2px 0}
+ body[data-screen=home] .hero p,body[data-screen=home] .v2hero p{font-size:14px;margin:2px 0;max-width:none}
+ body[data-screen=home] .worlds{grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px}
+ body[data-screen=home] .world{min-height:0;padding:8px 6px;border-radius:14px}
+ body[data-screen=home] .world .art,body[data-screen=home] .world .scene{height:54px;width:auto;margin-bottom:2px}
+ body[data-screen=home] .world strong{font-size:15px}
+ body[data-screen=home] .world small,.world-number,.enter{display:none}
+ body[data-screen=home] .home-garden,body[data-screen=home] main>.guide,body[data-screen=home] .discovery{display:none}
+ body[data-screen=menu] .activity-head{gap:8px;padding:0}
+ body[data-screen=menu] .activity-head .art,body[data-screen=menu] .activity-head>.scene{display:none}
+ body[data-screen=menu] .activity-head h1{font-size:20px;margin:2px 0}
+ body[data-screen=menu] .activity-head p{display:none}
+ body[data-screen=menu] .games{grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+ body[data-screen=menu] .game-card{min-height:0!important;padding:8px 44px 8px 10px!important}
+ body[data-screen=menu] .game-card b{font-size:15px}
+ body[data-screen=menu] .game-card small,.game-number,.game-arrow{display:none}
+ body[data-screen=menu] .preview{min-width:40px;min-height:40px;bottom:3px;padding:4px}
+ body[data-screen=menu] #worldLevel .levelbar button{min-height:36px;font-size:12px;padding:2px 8px}
+ body[data-screen=menu] .village-entry{margin:6px 0;padding:8px 14px;gap:8px}
+ body[data-screen=menu] .village-entry strong{font-size:16px;margin:2px 0}
+ body[data-screen=menu] .village-entry small{font-size:12px}
+ body[data-screen=menu] .village-medal{font-size:30px}
+}
+@media (orientation:landscape) and (max-height:500px) and (max-width:700px){
+ body[data-screen=play] .skip-voice{display:none}
+}
+
+/* ---- 3. dress: the finish button belongs under the wardrobe, always visible ---- */
+.wardrobe{display:flex;flex-direction:column}
+#fashionDone{order:99;margin-top:8px}
+@media (orientation:landscape){
+ #fashionDone{position:sticky;bottom:6px;z-index:3;box-shadow:0 -8px 14px #fff}
+}
+
+/* ---- 4. quantity/shop on phone portrait: use the whole screen, bigger objects ---- */
+@media (max-width:700px) and (orientation:portrait){
+ body[data-activity=quantity] .panel,body[data-activity=shop] .panel{min-height:calc(100vh - 285px);min-height:calc(100dvh - 285px);display:flex;flex-direction:column;justify-content:center}
+ body[data-activity=quantity] .object{font-size:58px;min-width:84px;min-height:84px}
+ body[data-activity=quantity] .objects{gap:14px;padding:14px}
+ body[data-activity=quantity] .choice{font-size:50px}
+ body[data-activity=shop] .object{font-size:48px;min-width:64px;min-height:64px}
+}
+
+/* ---- 6. svg fragments must stay inside their piece ---- */
+.piece svg{overflow:hidden;display:block}
+
+/* ---- 1b. short landscape: home hero is a 3D stage + village card; slim them too ---- */
+@media (orientation:landscape) and (max-height:500px){
+ body[data-screen=home] .home-3d,body[data-screen=home] .v2hero>svg{display:none}
+ body[data-screen=home] .v2hero{min-height:0;display:block}
+ body[data-screen=home] .v2hero>div{max-width:none}
+ body[data-screen=home] #homeLevel .levelbar button{min-height:36px;font-size:12px;padding:2px 8px}
+ body[data-screen=home] .village-entry{margin:6px 0;padding:6px 14px;gap:8px;min-height:0}
+ body[data-screen=home] .village-entry strong{font-size:16px;margin:2px 0}
+ body[data-screen=home] .village-entry small{font-size:12px}
+ body[data-screen=home] .village-medal{font-size:30px}
+ body[data-screen=home] .village-entry span span{font-size:13px}
+}
+/* ---- 7. menus and home on tablets/wide screens: use the width, stop scrolling ---- */
+@media (min-width:701px) and (max-width:1000px) and (min-height:501px){
+ .games{grid-template-columns:repeat(2,1fr)!important}
+ .game-card{min-height:100px!important;padding:14px 70px 14px 60px!important}
+ .activity-head{gap:14px}
+ .activity-head>.scene{width:110px}
+ .activity-head h1{font-size:26px;margin:4px 0}
+ .world .scene{height:130px}
+ .world{min-height:250px}
+}
+@media (min-width:1001px) and (min-height:501px){
+ .games{grid-template-columns:repeat(3,1fr)}
+ .game-card{min-height:120px!important}
+ .activity-head>.scene{width:140px}
+ .v2hero{min-height:200px}
+ .world{min-height:250px}
+ .world .scene{height:130px}
+}
+/* phone portrait home: slim cards so the garden fits the screen */
+@media (max-width:700px) and (orientation:portrait){
+ .v2hero{min-height:0}
+ .v2hero h1{font-size:30px}
+ .home-3d{max-height:190px;overflow:hidden}
+ .home-3d canvas{height:190px!important}
+ .village-entry{margin:10px 0;padding:12px 16px;min-height:0}
+ .village-medal{font-size:40px}
+ .village-entry strong{font-size:20px;margin:2px 0}
+ .world{min-height:0;padding:10px 8px}
+ .world .scene{height:88px!important}
+ .world small{min-height:0;margin:6px 0}
+}
+
+/* ---- 7b. home/menus, final fit pass ---- */
+@media (max-width:700px) and (orientation:portrait){
+ .v2hero>svg{display:none}
+ .v2hero{display:block;min-height:0}
+ .v2hero h1{font-size:26px;margin:4px 0}
+ .v2hero p{font-size:15px;margin:4px 0}
+ .home-3d,.home-3d canvas{max-height:150px}
+ .village-entry{margin:8px 0;padding:8px 14px}
+ .world .scene{height:76px!important}
+ footer{padding:10px 12px;font-size:13px}
+ footer button{font-size:13px;padding:8px 10px;min-height:44px}
+}
+@media (min-width:1001px) and (min-height:501px){
+ .v2hero>svg{display:none}
+ .home-3d,.home-3d canvas{max-height:260px}
+ .village-entry{margin:10px 0;padding:12px 20px;min-height:0}
+ .village-medal{font-size:56px}
+ .v2hero{min-height:0}
+}
+@media (min-width:701px) and (max-width:1000px) and (min-height:501px){
+ .games{grid-template-columns:repeat(3,1fr)!important;gap:10px}
+ .game-card{min-height:0!important;padding:10px 46px 10px 12px!important}
+ .game-card b{font-size:17px}
+ .game-card small{font-size:12px;margin-top:4px}
+ .game-number{display:none}
+ .preview{min-width:40px;min-height:40px}
+ .activity-head h1{font-size:24px}
+ .activity-head p{font-size:14px;margin:2px 0}
+}
+
+/* ---- 7c. home: last trims ---- */
+@media (max-width:700px) and (orientation:portrait){
+ .home-3d,.home-3d canvas{max-height:130px}
+ .world .scene{height:70px!important}
+ #homeLevel .levelbar button{min-height:40px;font-size:13px;padding:4px 10px}
+}
+@media (min-width:701px) and (max-width:1000px) and (min-height:501px){
+ .v2hero>svg{display:none}
+ .home-3d,.home-3d canvas{max-height:240px}
+ .v2hero{min-height:0}
+ .village-entry{margin:10px 0;padding:12px 18px;min-height:0}
+ .village-medal{font-size:52px}
+ .worlds{grid-template-columns:repeat(3,1fr)!important}
+ .world .scene{height:100px}
+ .world{min-height:0}
+            }
