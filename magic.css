@@ -176,7 +176,7 @@ main>.eyebrow{font-size:12px;letter-spacing:.3px;margin:0 0 2px}
 @keyframes card-flip-out{0%{transform:rotateY(-85deg) scale(.94)}55%{transform:rotateY(10deg) scale(1.02)}100%{transform:rotateY(0) scale(1)}}
 @keyframes match-pop{35%{transform:scale(1.1) rotate(-2deg)}100%{transform:scale(1)}}
 @media(prefers-reduced-motion:no-preference){.rich-memory button{animation:deal-in .35s backwards}.rich-memory button:nth-child(3n){animation-delay:.05s}.rich-memory button:nth-child(3n+1){animation-delay:.1s}.rich-memory button:nth-child(4n){animation-delay:.15s}}
-@keyframes deal-in{0%{transform:translateY(18px) scale(.7);opacity:0}100%{transform:none;opacity:1}}
+@keyframes deal-in{0%{transform:translateY(12px);opacity:0}100%{transform:none;opacity:1}}
 @media(prefers-reduced-motion:reduce){.rich-memory button.flipped,.rich-memory button.unflipping,.rich-memory button.matched{animation:none}}
 /* סבב 6ב: צורות-דמויות */
 .shape-model .geo{animation:geo-float 3.2s ease-in-out infinite}
