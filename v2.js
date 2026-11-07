@@ -60,6 +60,9 @@ home();
 const pacedRender=renderActivity;renderActivity=function(){let before=quietNarration,seen=seenInstructions.has(activity);quietNarration=quietNarration||seen;pacedRender();quietNarration=before;if(seen&&round>0&&!before){let k='short_'+activity;if(!AUDIO[k])k={'learnletters':'learnletters_intro','rhyme':'rhyme','syllables':'syllables','sort':'sort','village':'v_water'}[activity];if(!k||!AUDIO[k])k=null;if(k)previewClip(k);}};
 // Notify about an update without forcing a reload or discarding a child's creation.
 navigator.serviceWorker?.getRegistration().then(r=>{if(!r)return;function notice(){if(!r.waiting||!navigator.serviceWorker.controller||document.querySelector('.update-notice'))return;let x=document.createElement('p');x.className='update-notice';x.textContent='גרסה חדשה מוכנה. בסיום המשחק סגרו את כל חלונות הגן ופתחו מחדש.';document.querySelector('footer').append(x);}notice();r.addEventListener('updatefound',()=>r.installing?.addEventListener('statechange',notice));});
+// Safe auto-update: when a new service worker takes over, reload only while the home screen is showing (never mid-play); a tap pill offers the update meanwhile.
+let swPending=false;
+navigator.serviceWorker?.addEventListener('controllerchange',()=>{if(swPending)return;swPending=true;let pill=document.createElement('button');pill.className='sw-update-pill';pill.textContent='✨ יש עדכון חדש! לחצי לרענון';pill.style.cssText='position:fixed;bottom:70px;inset-inline-start:14px;z-index:999;background:#a05fc4;color:#fff;border:none;border-radius:24px;padding:12px 20px;font-size:18px;box-shadow:0 6px 20px #0003;font-family:inherit';pill.onclick=()=>location.reload();document.body.append(pill);(function tryReload(){if(!swPending)return;if(!document.hidden&&document.querySelector('.v2hero')){location.reload();return;}setTimeout(tryReload,4000);})();});
 // Resolve home dynamically so the header does not retain the v1 function binding.
 $('#home').onclick=()=>home();
 
