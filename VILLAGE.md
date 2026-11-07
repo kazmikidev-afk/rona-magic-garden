@@ -27,3 +27,17 @@ After independent gameplay/QA and product/pedagogy reviews:
 - Removed the duplicate chapter tag (heading already shows פרק N מתוך 3).
 - Update lifecycle: a controllerchange handler now reloads the app automatically when the home screen is showing, and otherwise shows a tap-to-update pill without interrupting play. Existing installed clients still need one manual close/reopen to pick up this version; from this version onward updates apply themselves at the home screen.
 - Cache bumped to rona-magic-20261107b. Automated Chromium playthrough: all 15 stages, wrong-answer path, locked-card feedback, persistence across reloads, finale garden, and the update mechanism pass with zero console errors.
+
+## Engagement wave 2 (7 November 2026, afternoon) - choices, discovery, thinking
+Miki's real-use feedback: the chaptered adventure held Rona under 2 minutes; more stages/taps/animations were not the answer. This round replaces repeat-tapping with agency, discovery and observation, grounded in the kindergarten teacher's list (patterns, observation, counting):
+
+- **Her choices shape the garden (agency + ownership).** Each chapter now opens with a "הבחירה שלך" screen: chapter 1 picks the garden's flower color, chapter 2 picks a new animal friend (bunny/cat/bird, built in 3D), chapter 3 picks the crown's gem. Choices are stored in rona-village-progress alongside the three completion flags (old saves keep working; missing choices default to pink/no-friend/pink gem) and render in the 3D scene on every later visit, including the finale. Replaying a chapter offers the choice again so she can restyle her garden.
+- **Star mission is now a treasure hunt (discovery).** Instead of tapping a static row of star buttons, 3/5/7 twinkling stars hide across the garden sky (DOM hotspots over the 3D stage); found stars fly to the progress strip and land on the crown. Counts are unchanged, so the counting mission (3/5/7) stays coherent.
+- **Watering is now observation (thinking).** Chapters 2/3 show 4-5 flowers, some blooming and some drooping; she waters only the thirsty ones (3). Chapter 1 keeps the simple 3-tap drop as an on-ramp.
+- **Bridge is now pattern continuation (thinking).** Chapter 1 keeps shape matching, but all options share one color per round so color can no longer substitute for shape matching (known review finding). Chapters 2/3 show a shape pattern (AB / AAB / ABC units) and ask what continues it - 4/5 rounds.
+- **The scene responds to touch.** Tapping the garden itself pops a small sparkle and chime (reduced-motion aware), so the world feels alive between tasks.
+- Six new short Hila lines (vn_choice_flowers/friend/gem, vn_hunt_stars, vn_thirsty, vn_pattern) in village-voice-20.js, same free build-time edge-tts pipeline as the previous vn_* clips; native-listener approval still pending. No paid services used.
+- Cache bumped to rona-magic-20261107c. Update lifecycle unchanged (auto-reload at home, tap-to-update pill in play; pre-20261107b clients need one manual close/reopen).
+
+Deliberately unchanged: chapter map/unlock flow, counting and letter missions, all existing voices outside the adventure (Achernar), mic-test.html (separate speech agent), collection/progress data.
+Open for Miki: whether the new difficulty mix is right once Rona plays it; ear-check of the six new lines.
