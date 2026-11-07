@@ -26,5 +26,10 @@
 @keyframes swap-wiggle{30%{transform:scale(.92) rotate(-3deg)}70%{transform:scale(1.05) rotate(2deg)}}
 @media(max-width:600px){.chapter-map{grid-template-columns:1fr;gap:12px}.chapter-card{min-height:0;padding:18px;flex-direction:row;text-align:right;justify-content:flex-start}.chapter-card .ch-icon{font-size:40px}.celebrate-text{font-size:20px}}
 @media(prefers-reduced-motion:reduce){.confetti{display:none}.fairy-actions button.bob,.fairy-actions button.swap,.chapter-card{animation:none;transition:none}}
-.chapter-tag{text-align:center;font-size:16px;font-weight:700;color:#795d82;margin-top:6px}
+
 .chapter-card .ch-icon svg{display:block}
+
+.chapter-card[aria-disabled]{opacity:.75;cursor:pointer}
+.chapter-card.wiggle{animation:wiggle .5s ease}
+@keyframes wiggle{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@media(prefers-reduced-motion:reduce){.chapter-card.wiggle{animation:none}}
