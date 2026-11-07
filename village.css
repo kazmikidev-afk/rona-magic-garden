@@ -3,3 +3,28 @@
 .fairy-actions button{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 22px}.fairy-progress span{display:flex;align-items:center;justify-content:center;min-width:64px}.fairy-progress svg{width:28px;height:28px}
 
 .fairy-progress{gap:8px}.fairy-progress span{min-width:44px;padding:8px 12px}.name-model{font-size:48px!important;letter-spacing:8px;color:#6f4789}.fairy-progress span:nth-child(n+4){font-weight:700;font-size:25px}
+
+/* Chapter map and adventure progression */
+.chapter-map{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+.chapter-card{display:flex;flex-direction:column;align-items:center;gap:8px;padding:26px 16px;background:#fff8e8;border:2px solid #d7bbdc;border-radius:24px;color:#594168;box-shadow:0 5px 0 #dbc5de;min-height:190px;font-size:19px;touch-action:manipulation}
+.chapter-card .ch-icon{font-size:52px}
+.chapter-card b{font-size:24px}
+.chapter-card .ch-name{font-size:20px;font-weight:700}
+.chapter-card small{font-size:15px;color:#7a6486}
+.chapter-card.locked{opacity:.55;background:#f2edf4;box-shadow:none}
+.chapter-card.next{border-color:#e8bb5b;box-shadow:0 5px 0 #e3cf9a,0 0 22px #f6c65b66}
+.chapter-card:not(.locked):active{transform:translateY(3px);box-shadow:0 2px 0 #dbc5de}
+.fairy-celebrate{text-align:center;padding:30px 10px}
+.celebrate-text{font-size:24px;line-height:1.7;color:#553862}
+.fairy-actions .v-primary{background:#a05fc4;color:#fff;border-color:#8a4fae}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+.confetti i{position:absolute;top:-18px;width:14px;height:20px;border-radius:4px;animation:confetti-fall linear forwards}
+@keyframes confetti-fall{to{transform:translateY(110vh) rotate(540deg);opacity:.9}}
+.fairy-actions button.bob{animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-9px)}}
+.fairy-actions button.swap{animation:swap-wiggle .45s ease}
+@keyframes swap-wiggle{30%{transform:scale(.92) rotate(-3deg)}70%{transform:scale(1.05) rotate(2deg)}}
+@media(max-width:600px){.chapter-map{grid-template-columns:1fr;gap:12px}.chapter-card{min-height:0;padding:18px;flex-direction:row;text-align:right;justify-content:flex-start}.chapter-card .ch-icon{font-size:40px}.celebrate-text{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.confetti{display:none}.fairy-actions button.bob,.fairy-actions button.swap,.chapter-card{animation:none;transition:none}}
+.chapter-tag{text-align:center;font-size:16px;font-weight:700;color:#795d82;margin-top:6px}
+.chapter-card .ch-icon svg{display:block}
