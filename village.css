@@ -33,3 +33,19 @@
 .chapter-card.wiggle{animation:wiggle .5s ease}
 @keyframes wiggle{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 @media(prefers-reduced-motion:reduce){.chapter-card.wiggle{animation:none}}
+/* Engagement wave 2: star hunt layer, scene sparkle, choice screens */
+.sky-layer{position:absolute;inset:0;pointer-events:none;z-index:6}
+.sky-star{position:absolute;pointer-events:auto;min-width:64px;min-height:64px;background:transparent;border:none;cursor:pointer;transform:translate(-50%,-50%);animation:twinkle 1.8s ease-in-out infinite;touch-action:manipulation}
+.sky-star svg{width:52px;height:52px;filter:drop-shadow(0 0 9px #ffe298)}
+.sky-star:disabled{pointer-events:none}
+@keyframes twinkle{50%{transform:translate(-50%,-50%) scale(1.16) rotate(8deg)}}
+.sky-star.flying{position:fixed;z-index:70;pointer-events:none;transition:transform .7s ease-in,opacity .7s}
+.tap-sparkle{position:absolute;width:14px;height:14px;margin:-7px;border-radius:50%;background:radial-gradient(#fff,#ffd166 60%,transparent);animation:spark-pop .7s ease-out forwards;pointer-events:none;z-index:5}
+@keyframes spark-pop{from{transform:scale(.4);opacity:1}to{transform:scale(3.2);opacity:0}}
+.fairy-actions button.flower-pick svg{width:56px;height:56px}
+.fairy-actions button.picked{outline:4px solid #a05fc4;background:#f2e4f8}
+.choice-emoji{font-size:52px;line-height:1}
+.bridge-model svg{width:40px;height:40px;vertical-align:middle;margin:0 3px}
+.pattern-q{font-size:40px;color:#a05fc4;margin-right:6px}
+@media(max-width:600px){.sky-star svg{width:44px;height:44px}.choice-emoji{font-size:42px}}
+@media(prefers-reduced-motion:reduce){.sky-star{animation:none}.tap-sparkle{display:none}}
