@@ -71,7 +71,7 @@ if(stage===0){ // watering: ch1 taps one big drop x3; ch2/3 observation - water 
   }else{
     let total=chapter===1?4:5,thirsty=3,thirstyBtns=[];
     shuffle(Array.from({length:total},(_,i)=>i<thirsty)).forEach(isT=>{
-      let b=document.createElement('button');b.className='flower-pick';b.innerHTML=flowerBtn(FLOWER_COLORS[choices.flower],!isT);b.setAttribute('aria-label',isT?'פרח צמא':'פרח פורח');
+      let b=document.createElement('button');b.className='flower-pick';b.innerHTML=flowerBtn(FLOWER_COLORS[choices.flower],isT);b.setAttribute('aria-label',isT?'פרח צמא':'פרח פורח');
       b.onclick=()=>{if(busy||b.disabled)return;
         if(!isT){miss(b);if(misses>=2)thirstyBtns.forEach(x=>{if(!x.disabled)x.classList.add('hint-glow');});return;}
         document.querySelectorAll('#vActions .hint-glow').forEach(x=>x.classList.remove('hint-glow'));b.disabled=true;sound();count++;tapFeedback();fx.waterNext?.();if(count===thirsty)stageComplete();};
