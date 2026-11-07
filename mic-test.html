@@ -116,8 +116,7 @@ function renderItem(){
  $('itemGlyph').classList.toggle('hidden',it.type!=='letter');
  $('itemWord').textContent=it.type==='word'?it.show:'';
  $('itemWord').classList.toggle('hidden',it.type!=='word');
- $('itemPrompt').textContent=it.prompt;
- $('feedback').textContent='';
+ $('itemPrompt').textContent=it.prompt; $('feedback').textContent='';
  setProgress();
 }
 function sayModel(){
