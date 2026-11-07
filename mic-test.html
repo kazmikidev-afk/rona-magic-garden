@@ -39,7 +39,7 @@ button{font-family:inherit;cursor:pointer;border:none;border-radius:999px;font-w
 </head>
 <body>
 <header><h1>🎤 מבחן מיקרופון לרונה</h1><div id="progress"></div></header>
-<div class="parent-note"><b>להורה:</b> מבדק דיוק לזיהוי דיבור לפני שמפעילים את הפיצ׳ר במשחק. בכל לחיצה על המיקרופון הקול נשלח לשירות זיהוי הדיבור של גוגל (דרך הדפדפן) רק כדי לזהות מה נאמר. אין הקלטה, אין שמירה ואין שליחה לשום שרת אחר; סגירת הדף מוחקת את התוצאות. מומלץ לשבת עם רונה במקום שקט יחסית, להראות לה את האות או המילה (או לומר לה מה לומר), וללחוץ את כפתור המיקרופון בעצמכם בהתחלה.</div>
+<div class="parent-note"><b>להורה:</b> מבדק דיוק לזיהוי דיבור לפני שמפעילים את הפיצ׳ר במשחק. בכל לחיצה על המיקרופון הדפדפן שולח את הקול לשירות זיהוי הדיבור של גוגל כדי לזהות מה נאמר; הטיפול בקול שם כפוף לתנאי גוגל. האפליקציה עצמה לא שומרת הקלטות או תוצאות באף שרת שלה, והתוצאות שעל המסך נמחקות כשסוגרים את הדף. מומלץ לשבת עם רונה במקום שקט יחסית, להראות לה את האות או המילה (או לומר לה מה לומר), וללחוץ את כפתור המיקרופון בעצמכם בהתחלה.</div>
 <main>
 <div class="card">
   <div id="startBox">
@@ -56,7 +56,7 @@ button{font-family:inherit;cursor:pointer;border:none;border-radius:999px;font-w
     <div class="row">
       <button id="againBtn" class="small">🔁 עוד ניסיון</button>
       <button id="skipBtn" class="small">דילוג ⏭</button>
-      <button id="sayBtn" class="small">🔊 שמיעי איך אומרים</button>
+      <button id="sayBtn" class="small">🔊 איך אומרים?</button>
     </div>
   </div>
   <div id="doneBox" class="hidden">
@@ -99,12 +99,15 @@ function norm(s){
 }
 function matches(transcript,item){
  var t=norm(transcript);if(!t)return false;
+ var tokens=t.split(' ');
  for(var i=0;i<item.accept.length;i++){
   var a=norm(item.accept[i]);if(!a)continue;
   if(t===a)return true;
-  if(t.indexOf(a)!==-1)return true;
-  var words=t.split(' ');
-  for(var w=0;w<words.length;w++){if(words[w]===a)return true;}
+  if(tokens.indexOf(a)!==-1)return true;
+  if(item.type==='word'){
+   if(t==='ה'+a)return true;
+   if(tokens.indexOf('ה'+a)!==-1)return true;
+  }
  }
  return false;
 }
@@ -116,7 +119,8 @@ function renderItem(){
  $('itemGlyph').classList.toggle('hidden',it.type!=='letter');
  $('itemWord').textContent=it.type==='word'?it.show:'';
  $('itemWord').classList.toggle('hidden',it.type!=='word');
- $('itemPrompt').textContent=it.prompt; $('feedback').textContent='';
+ $('itemPrompt').textContent=it.prompt;
+ $('feedback').textContent='';
  setProgress();
 }
 function sayModel(){
@@ -133,12 +137,6 @@ function startListening(){
  rec.maxAlternatives=5;
  rec.interimResults=false;
  rec.continuous=false;
- try{
-  if('phrases' in rec && window.SpeechRecognitionPhrase){
-   var it=ITEMS[idx];
-   rec.phrases=it.accept.map(function(a){var p=new SpeechRecognitionPhrase(a);p.boost=10;return p;});
-  }
- }catch(e){}
  listening=true;
  $('micBtn').classList.add('listening');
  $('micBtn').textContent='🎧 מקשיבים…';
@@ -154,9 +152,9 @@ function startListening(){
   $('micBtn').textContent='🎤 דברי עכשיו';
   if(ev.error==='not-allowed'||ev.error==='service-not-allowed'){$('feedback').textContent='צריך לאשר מיקרופון בדפדפן (סמל המנעול בשורת הכתובת).';}
   else if(ev.error==='network'){$('feedback').textContent='אין חיבור לאינטרנט כרגע - הזיהוי עובד רק עם רשת.';}
-  else if(ev.error==='no-speech'){$('feedback').textContent='לא שמעתי כלום… ננסי שוב קרוב למיקרופון 🙂';}
+  else if(ev.error==='no-speech'){$('feedback').textContent='לא שמעתי כלום… ננסה שוב, קרוב למיקרופון 🙂';}
   else if(ev.error==='language-not-supported'){$('feedback').textContent='הדפדפן לא תומך בזיהוי בעברית.';}
-  else{$('feedback').textContent='לא שמעתי טוב, ננסי שוב 🙂';}
+  else{$('feedback').textContent='לא שמעתי טוב, ננסה שוב 🙂';}
   logRow(ITEMS[idx],'(שגיאה: '+ev.error+')',[],false);
  };
  rec.onend=function(){listening=false;$('micBtn').classList.remove('listening');$('micBtn').textContent='🎤 דברי עכשיו';};
@@ -172,10 +170,10 @@ function finishListen(alts){
   $('feedback').textContent='כל הכבוד! 🌟';
   setTimeout(next,1200);
  }else if(tries>=2){
-  $('feedback').textContent='יפה שניסית! ממשיכות הלאה 💜';
+  $('feedback').textContent='יפה שניסית! בואי נמשיך 💜';
   setTimeout(next,1500);
  }else{
-  $('feedback').textContent='לא שמעתי טוב, ננסי עוד פעם 🙂';
+  $('feedback').textContent='לא שמעתי טוב, ננסה עוד פעם 🙂';
  }
 }
 function next(){
