@@ -1,0 +1,73 @@
+/* קוראים עם רונה — מסלול קריאה */
+.rd-panel{text-align:center}
+.rd-modes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:640px;margin:14px auto}
+.rd-mode{padding:22px 16px;background:#fdf2f8;border:2px solid #f3d9ec;border-radius:24px;min-height:140px}
+.rd-mode b{display:block;font-size:23px;margin:6px 0}
+.rd-mode small{font-size:16px;color:#6e6475}
+.rd-mode-icon{font-size:40px;display:block}
+.rd-parent-note{font-size:15px;color:#6e6475;max-width:520px;margin:8px auto 0}
+.rd-stages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px;margin:14px auto 10px}
+.rd-stage{padding:18px 12px;background:#fdf2f8;border:2px solid #f3d9ec;border-radius:22px;min-height:150px}
+.rd-stage b{display:block;font-size:23px;margin:2px 0}
+.rd-stage small{font-size:15px;color:#6e6475;display:block;min-height:36px}
+.rd-stage-icon{font-size:38px;display:block;font-weight:bold;color:#a05fc4;line-height:1.15}
+.rd-stage-locked{opacity:.55}
+.rd-stars{display:block;font-size:17px;margin-top:4px;min-height:22px}
+.rd-stars i{font-style:normal;font-size:13px;color:#8a7f95;margin-right:4px}
+.rd-garden-wrap{margin:8px auto 4px;max-width:560px}
+.rd-garden-label{font-size:15px;color:#6e6475;margin:0 0 6px}
+.rd-garden{width:100%;height:auto;display:block;filter:drop-shadow(0 3px 8px rgba(122,90,150,.18))}
+.rd-garden .rd-off{opacity:.22;filter:grayscale(1)}
+.rd-choices{max-width:700px}
+.rd-letter{font-size:56px;min-height:110px}
+.rd-wordcard{font-size:34px;min-height:100px;padding:14px 18px}
+.rd-choices.rd-word{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.rd-celebrate{display:flex;flex-direction:column;align-items:center;gap:6px}
+.rd-friend-svg{width:56px;height:56px}
+.rd-friend-pop .rd-friend-svg{width:110px;height:110px;animation:rd-pop .6s ease}
+.rd-celebrate b{font-size:24px;color:#7a4a96}
+.rd-celebrate small{font-size:17px;color:#6e6475}
+.rd-gone{opacity:.35;filter:grayscale(.7);transition:opacity .3s}
+@keyframes rd-pop{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+/* טלפון: כל המסך (מצב/מפה) נכנס במסך אחד בלי גלילה */
+@media(max-width:700px){
+ .rd-screen .eyebrow{font-size:13px;margin:0}
+ .rd-screen h1{font-size:26px;margin:2px 0 4px}
+ .rd-screen .title-row{margin:0 0 4px}
+ .rd-screen .panel{padding:12px 10px}
+ .rd-screen .instruction{font-size:17px;margin:2px 0 6px}
+ .rd-modes{grid-template-columns:1fr;gap:10px;margin:8px auto}
+ .rd-mode{min-height:0;padding:12px 14px;display:flex;align-items:center;gap:12px;text-align:right}
+ .rd-mode-icon{font-size:34px}
+ .rd-mode b{font-size:19px;margin:0 0 2px}
+ .rd-mode small{font-size:14px}
+ .rd-parent-note{font-size:13px;margin-top:8px}
+ .rd-stages{grid-template-columns:1fr;gap:8px;max-width:420px;margin:8px auto 6px}
+ .rd-stage{min-height:0;padding:8px 12px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;text-align:right}
+ .rd-stage-icon{font-size:26px}
+ .rd-stage-icon svg{width:24px;height:24px}
+ .rd-stage b{font-size:18px;margin:0}
+ .rd-stage small{font-size:13px;min-height:0}
+ .rd-stars{font-size:14px;min-height:0;margin:0;text-align:left;max-width:86px}
+ .rd-garden-wrap{margin:4px auto 2px;max-width:330px}
+ .rd-garden-label{font-size:13px;margin-bottom:3px}
+ .rd-screen .tools{margin-top:6px}
+ .rd-letter{font-size:44px;min-height:92px}
+ .rd-wordcard{font-size:28px}
+}
+/* טלפון בשכיבה: עוד צמצום אנכי */
+@media(max-height:520px){
+ .rd-screen h1{font-size:22px}
+ .rd-garden-wrap{max-width:260px}
+ .rd-stage{padding:6px 12px}
+}
+@media(orientation:landscape) and (max-height:520px){
+ .rd-screen .rd-stages{margin:4px auto;gap:8px}
+ .rd-screen .rd-stage{min-height:0;padding:6px 10px}
+ .rd-screen .rd-stage-icon{font-size:26px}
+ .rd-screen .rd-stage b{font-size:19px}
+ .rd-screen .rd-stage small{font-size:13px;min-height:28px}
+ .rd-screen .rd-garden-wrap{max-width:205px;margin-top:2px}
+ .rd-screen .rd-garden-label{font-size:12px;margin-bottom:2px}
+ .rd-screen .rd-stars{font-size:13px;min-height:16px;margin-top:2px}
+}
